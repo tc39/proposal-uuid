@@ -10,9 +10,9 @@ use this for inspiration while fleshing out document.***
 
 ## Synopsis
 
-The standard module `@std:uuid` exposes an API for generating character
+The standard uuid module exposes an API for generating character
 encoded Universally Unique IDentifiers (UUID), based on the IETF
-[rfc4122](https://tools.ietf.org/html/rfc4122) proposal.
+[rfc4122](https://tools.ietf.org/html/rfc4122) standard.
 
 ## Motivation
 
@@ -27,11 +27,10 @@ functionality a good candidate for standard modules.
 
 ### Developers "re-inventing the wheel" is potentially harmful
 
-Developers who have not been exposed to the rfc4122 specification (or other
-vetted approaches for UUID generation) might naturally opt to invent their
+Developers who have not been exposed to the rfc4122 specification might naturally opt to invent their
 own approaches to UUID generation, potentially using `Math.random()`.
 
-It's well documented that [`Math.random()` is not cryptographically secure](https://v8.dev/blog/math-random), by instead exposing users to `@std:uuid` we prevent the pitfalls
+It's well documented that [`Math.random()` is not cryptographically secure](https://v8.dev/blog/math-random), by instead exposing users to standard uuid module we prevent the pitfalls
 that go hand in hand with home-grown implementations.
 
 ## Use cases
@@ -56,8 +55,6 @@ How do folks in the community use rfc4122 UUIDs?
 
 ## References
 
-* [rfc4122 proposal](https://tools.ietf.org/html/rfc4122)
-* [Ecmarkup source](https://github.com/tc39/proposal-top-level-await/blob/master/spec.html)
-* [HTML version](https://tc39.github.io/proposal-top-level-await/)
+* [rfc4122 standard](https://tools.ietf.org/html/rfc4122)
 
 
