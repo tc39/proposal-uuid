@@ -11,8 +11,8 @@ use this for inspiration while fleshing out document.***
 ## Synopsis
 
 The standard uuid module exposes an API for generating character
-encoded Universally Unique IDentifiers (UUID), based on the IETF
-[rfc4122](https://tools.ietf.org/html/rfc4122) standard.
+encoded Universally Unique IDentifiers (UUID), based on
+[IETF RFC 4122](https://tools.ietf.org/html/rfc4122).
 
 ## Motivation
 
@@ -27,7 +27,7 @@ functionality a good candidate for standard modules.
 
 ### Developers "re-inventing the wheel" is potentially harmful
 
-Developers who have not been exposed to the rfc4122 specification might naturally opt to invent their
+Developers who have not been exposed to RFC 4122 might naturally opt to invent their
 own approaches to UUID generation, potentially using `Math.random()`.
 
 It's well documented that [`Math.random()` is not cryptographically secure](https://v8.dev/blog/math-random), by instead exposing users to standard uuid module we prevent the pitfalls
@@ -35,7 +35,7 @@ that go hand in hand with home-grown implementations.
 
 ## Use cases
 
-How do folks in the community use rfc4122 UUIDs?
+How do folks in the community use RFC 4122 UUIDs?
 
 ### Creating unique keys for database entries
 
@@ -55,6 +55,6 @@ How do folks in the community use rfc4122 UUIDs?
 
 ## References
 
-* [rfc4122 standard](https://tools.ietf.org/html/rfc4122)
+* [IETF RFC 4122](https://tools.ietf.org/html/rfc4122)
 
 
