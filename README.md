@@ -1,11 +1,11 @@
 # ECMAScript proposal: standard module uuid
 
-Champions:  [Benjamin Coe](https://github.com/bcoe)
+Champions: [Benjamin Coe](https://github.com/bcoe)
 
 Status: Stage 0
 
-***Note to contributors: this template is based on the 
-[top-level await proposal](https://github.com/tc39/proposal-top-level-await), 
+***Note to contributors: this template is based on the
+[top-level await proposal](https://github.com/tc39/proposal-top-level-await),
 use this for inspiration while fleshing out document.***
 
 ## Synopsis
@@ -56,5 +56,3 @@ How do folks in the community use RFC 4122 UUIDs?
 ## References
 
 * [IETF RFC 4122](https://tools.ietf.org/html/rfc4122)
-
-
