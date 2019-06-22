@@ -9,7 +9,21 @@
   },
   "devDependencies": {
     "ecmarkup": "^3.12.0",
+    "husky": "^2.4.1",
+    "lint-staged": "^8.2.1",
     "markdownlint-cli": "0.17.0",
-    "mkdirp": "^0.5.1"
+    "mkdirp": "^0.5.1",
+    "prettier": "^1.18.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,css,json,md}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
