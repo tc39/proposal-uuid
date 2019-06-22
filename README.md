@@ -44,13 +44,6 @@ import uuid from "lib:uuid";
 uuid(); // 52e6953d-edbe-4953-be2e-65ed3836b2f0
 ```
 
-The `v4` export is also provided, allowing for future additions to the API:
-
-```js
-import { v4 } from "lib:uuid";
-v4(); // 52e6953d-edbe-4953-be2e-65ed3836b2f0
-```
-
 ## Out of scope
 
 Algorithms described in RFC 4122 other than Version 4 are not initially supported.
