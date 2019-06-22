@@ -41,7 +41,7 @@ The default export of the `uuid` module is the
 representation _(as described in RFC-4122)_.
 
 ```js
-import uuid from 'lib:uuid'; // (Note: exact import syntax is TBD).
+import uuid from "lib:uuid"; // (Note: exact import syntax is TBD).
 uuid(); // 52e6953d-edbe-4953-be2e-65ed3836b2f0
 ```
 
@@ -83,11 +83,11 @@ How do folks in the community use RFC 4122 UUIDs?
 
 **what are the advantages to uuid being a built-in module?**
 
-- The `uuid` module is relied on by `> 2,600,000` repos on GitHub (June 2019). Guaranteeing a secure,
-  consistent, well-maintained `uuid` module provides value to millions of developers.
-- The 12 kb `uuid` module is downloaded from npm `> 62,000,000` times a month (June 2019); making it a built-in
-  module eventually saves TBs of bandwidth globally. If we continue to address user needs, such as
-  `uuid`, as we expand built-in modules, bandwidth savings add up.
+- The `uuid` module is relied on by `> 2,600,000` repos on GitHub (June 2019). Guaranteeing a
+  secure, consistent, well-maintained `uuid` module provides value to millions of developers.
+- The 12 kb `uuid` module is downloaded from npm `> 62,000,000` times a month (June 2019); making
+  it a built-in module eventually saves TBs of bandwidth globally. If we continue to address user
+  needs, such as `uuid`, as we expand built-in modules, bandwidth savings add up.
 
 ## Specification
 
