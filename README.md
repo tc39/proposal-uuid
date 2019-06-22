@@ -36,8 +36,9 @@ home-grown implementations.
 
 The `uuid` built-in provides an API for generating RFC 4122 identifiers.
 
-The default export of the `uuid` module is the [Version 4 Algorithm][rfc-4122#section-4.4], and
-returns the string representation _(as described in RFC-4122)_.
+The default export of the `uuid` module is the
+[Version 4 Algorithm](https://tools.ietf.org/html/rfc4122#section-4.4), and returns the string
+representation _(as described in RFC-4122)_.
 
 ```js
 import uuid from "lib:uuid"; // (Note: exact import syntax is TBD).
