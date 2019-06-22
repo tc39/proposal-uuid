@@ -1,4 +1,4 @@
-# ECMAScript proposal: JavaScript standard library UUID module
+# ECMAScript proposal: JavaScript standard library UUID built-in
 
 Champions: [Benjamin Coe](https://github.com/bcoe)
 
@@ -6,9 +6,9 @@ Status: Stage 0
 
 ## Synopsis
 
-The [JavaScript standard library](https://github.com/tc39/proposal-javascript-standard-library)
-UUID module exposes an API for generating character encoded Universally Unique Identifiers (UUID),
-based on [IETF RFC 4122](https://tools.ietf.org/html/rfc4122).
+The [JavaScript standard library][standard-library-proposal] UUID built-in exposes an API for
+generating character encoded Universally Unique Identifiers (UUID), based on [IETF RFC
+4122][rfc-4122].
 
 ## Motivation
 
@@ -16,11 +16,11 @@ based on [IETF RFC 4122](https://tools.ietf.org/html/rfc4122).
 
 The [`uuid` module](https://www.npmjs.com/package/uuid) on npm currently receives some
 [64,000,000 monthly downloads](https://npm-stat.com/charts.html?package=uuid) and is relied on by
-over 2,600,000 repositories.
+over 2,600,000 repositories (as of June 2019).
 
 The ubiquitous nature of the `uuid` module demonstrates that UUID generation is a common
 requirement for JavaScript software applications, making the functionality a good candidate for
-standard library modules.
+standard library built-in.
 
 ### Developers "re-inventing the wheel" is potentially harmful
 
@@ -29,18 +29,18 @@ to UUID generation, potentially using `Math.random()`.
 
 It's well documented that
 [`Math.random()` is not cryptographically secure](https://v8.dev/blog/math-random), by instead
-exposing users to the standard library UUID module we prevent the pitfalls that go hand in hand
-with home-grown implementations.
+exposing users to the standard library UUID we prevent the pitfalls that go hand in hand with
+home-grown implementations.
 
 ## Overview
 
-The `uuid` built-in module provides an API for generating RFC 4122 identifiers.
+The `uuid` built-in provides an API for generating RFC 4122 identifiers.
 
-The default export of the `uuid` module is the
-[Version 4 variant](https://tools.ietf.org/html/rfc4122#section-4.4) of the algorithm:
+The default export of the `uuid` module is the [Version 4 Algorithm][rfc-4122#section-4.4], and
+returns the string representation _(as described in RFC-4122)_.
 
 ```js
-import uuid from "lib:uuid";
+import uuid from "lib:uuid"; // (Note: exact import syntax is [TBD](JavaScript Standard Library Proposal)).
 uuid(); // 52e6953d-edbe-4953-be2e-65ed3836b2f0
 ```
 
@@ -59,24 +59,14 @@ Version 4 algorithm is most widely used:
 | v5                | 231        | 1    |
 | v3                | 29         | .1   |
 
-### Reasons for not Supporting Version 1
+### Reasons for not Supporting Other UUID Versions
 
-While popular, the Version 1 algorithm presents challenges to implementation in the web-browser:
+While there is utility in other UUID versions, we are advocating starting with the minimal API
+surface possible, that supports a large percentage of users.
 
-- it relies on high resolution time, which for security reasons is not supported in browsers (see:
-  [performance.now()](https://developer.mozilla.org/en-US/docs/Web/API/Performance/now)).
-- it's recommended that an
-  [IEEE 802 MAC address](https://standards.ieee.org/content/dam/ieee-standards/standards/web/documents/tutorials/macgrp.pdf)
-  be used as a Node field in the UUID. The MAC address is not obtainable in browser environments.
-
-UUID Version 1 is displayed more predominantly in the
-[uuid README](https://www.npmjs.com/package/uuid). Despite this fact, it is used by only 0.24 as
-many projects as Version 4. It's our hypothesis that a healthy percentage of the people using
-Version 1 of the algorithm chose it due to its position in the README, and could be convinced to
-migrate.
-
-_We are currently reaching out to prominent projects using UUID Version 1, to test this
-hypothesis._
+It is expected that additional functionality such as version 1, 3, and 5 UUIDs, parsing and
+validation, and binary uuid formats will be provided in future versions of this specification, and
+exposed as named exports to allow for backward compatibility with the current proposal.
 
 ## Use cases
 
@@ -117,5 +107,8 @@ _to come..._
 
 ## References
 
-- [IETF RFC 4122](https://tools.ietf.org/html/rfc4122)
-- [JavaScript Standard Library Proposal](https://github.com/tc39/proposal-javascript-standard-library)
+- [IETF RFC 4122][rfc-4122]
+- [JavaScript Standard Library Proposal][standard-library-proposal]
+
+[rfc-4122]: https://tools.ietf.org/html/rfc4122
+[standard-library-proposal]: https://github.com/tc39/proposal-javascript-standard-library
