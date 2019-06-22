@@ -40,7 +40,7 @@ The default export of the `uuid` module is the [Version 4 Algorithm][rfc-4122#se
 returns the string representation _(as described in RFC-4122)_.
 
 ```js
-import uuid from "lib:uuid"; // (Note: exact import syntax is [TBD](JavaScript Standard Library Proposal)).
+import uuid from "lib:uuid"; // (Note: exact import syntax is TBD).
 uuid(); // 52e6953d-edbe-4953-be2e-65ed3836b2f0
 ```
 
