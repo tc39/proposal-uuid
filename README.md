@@ -45,7 +45,7 @@ The default export of the UUID library is the
 representation _(as described in RFC-4122)_.
 
 ```js
-import uuid from "lib:uuid"; // (Note: exact import syntax is TBD).
+import uuid from 'lib:uuid'; // (Note: exact import syntax is TBD).
 uuid(); // "52e6953d-edbe-4953-be2e-65ed3836b2f0"
 ```
 
@@ -56,16 +56,15 @@ secure][csprng]** source.
 
 Algorithms described in RFC 4122 other than Version 4 are not initially supported.
 
-Statistics we've collected
-([see issue #4](https://github.com/bcoe/proposal-standard-module-uuid/issues/4)) indicate that the
-Version 4 algorithm is most widely used:
+Statistics we've collected ([see data/README.md](./data/README.md)) indicate that the Version 4
+algorithm is most widely used:
 
-| Algorithm Version | Repo Count | %    |
-| ----------------- | ---------- | ---- |
-| v4                | 18318      | 79.7 |
-| v1                | 4399       | 19.1 |
-| v5                | 231        | 1    |
-| v3                | 29         | .1   |
+| Algorithm Version | Repo Count | %     | Weighted by Watch Count | %     |
+| ----------------- | ---------- | ----- | ----------------------- | ----- |
+| v4                | 4316       | 75.9% | 149803                  | 88.1% |
+| v1                | 1254       | 22.0% | 17115                   | 10.1% |
+| v5                | 67         | 1.2%  | 2176                    | 1.3%  |
+| v3                | 52         | 0.9%  | 1035                    | 0.6%  |
 
 ### Regarding other UUID versions
 
