@@ -86,8 +86,8 @@ How do folks in the community use RFC 4122 UUIDs?
 - The `uuid` module is relied on by `> 2,600,000` repos on GitHub (June 2019). Guaranteeing a
   secure, consistent, well-maintained `uuid` module provides value to millions of developers.
 - The 12 kb `uuid` module is downloaded from npm `> 62,000,000` times a month (June 2019); making
-  it available in the standard library eventually saves TBs of bandwidth globally. If we continue to
-  address user needs, such as `uuid`, with the standard library, bandwidth savings add up.
+  it available in the standard library eventually saves TBs of bandwidth globally. If we continue
+  to address user needs, such as `uuid`, with the standard library, bandwidth savings add up.
 
 ## TODO
 
