@@ -1,14 +1,14 @@
-# ECMAScript proposal: JavaScript standard library UUID built-in
+# ECMAScript proposal: JavaScript standard library UUID
 
 Champions: [Benjamin Coe](https://github.com/bcoe)
 
-Status: Stage 0
+Status: early draft, never presented to TC39
 
 ## Synopsis
 
-The [JavaScript standard library][standard-library-proposal] UUID built-in exposes an API for
-generating character encoded Universally Unique Identifiers (UUID), based on [IETF RFC
-4122][rfc-4122].
+The [JavaScript standard library][standard-library-proposal] UUID describes an API for generating
+character encoded Universally Unique Identifiers (UUID) based on [IETF RFC 4122][rfc-4122],
+available for import in JavaScript engines.
 
 ## Motivation
 
@@ -19,8 +19,8 @@ The [`uuid` module](https://www.npmjs.com/package/uuid) on npm currently receive
 over 2,600,000 repositories (as of June 2019).
 
 The ubiquitous nature of the `uuid` module demonstrates that UUID generation is a common
-requirement for JavaScript software applications, making the functionality a good candidate for
-standard library built-in.
+requirement for JavaScript software applications, making the functionality a good candidate for the
+standard library.
 
 ### Developers "re-inventing the wheel" is potentially harmful
 
@@ -34,9 +34,9 @@ home-grown implementations.
 
 ## Overview
 
-The `uuid` built-in provides an API for generating RFC 4122 identifiers.
+The `uuid` standard library provides an API for generating RFC 4122 identifiers.
 
-The default export of the `uuid` module is the
+The default export of the `uuid` library is the
 [Version 4 Algorithm](https://tools.ietf.org/html/rfc4122#section-4.4), and returns the string
 representation _(as described in RFC-4122)_.
 
@@ -81,17 +81,13 @@ How do folks in the community use RFC 4122 UUIDs?
 
 ## FAQ
 
-**what are the advantages to uuid being a built-in module?**
+**what are the advantages to uuid being in the standard library?**
 
 - The `uuid` module is relied on by `> 2,600,000` repos on GitHub (June 2019). Guaranteeing a
   secure, consistent, well-maintained `uuid` module provides value to millions of developers.
 - The 12 kb `uuid` module is downloaded from npm `> 62,000,000` times a month (June 2019); making
-  it a built-in module eventually saves TBs of bandwidth globally. If we continue to address user
-  needs, such as `uuid`, as we expand built-in modules, bandwidth savings add up.
-
-## Specification
-
-_to come..._
+  it available in the standard library eventually saves TBs of bandwidth globally. If we continue to
+  address user needs, such as `uuid`, with the standard library, bandwidth savings add up.
 
 ## TODO
 
