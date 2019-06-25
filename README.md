@@ -25,10 +25,10 @@ standard library.
 ### Developers "re-inventing the wheel" is potentially harmful
 
 Developers who have not been exposed to RFC 4122 might naturally opt to invent their own approaches
-to UUID generation, potentially using `Math.random()` (in [TIFU by using `Math.random()`]
-](https://medium.com/@betable/tifu-by-using-math-random-f1c308c4fd9d)) there's an in-depth
-discussion of why a Cryptographically-Secure-Pseudo-Random-Number-Generator (_CSPRNG_) should be
-used when generating UUIDs).
+to UUID generation, potentially using `Math.random()` (in
+[TIFU by using `Math.random()`](https://medium.com/@betable/tifu-by-using-math-random-f1c308c4fd9d))
+there's an in-depth discussion of why a Cryptographically-Secure-Pseudo-Random-Number-Generator
+(_CSPRNG_) should be used when generating UUIDs).
 
 Introducing a UUID standard library, which dictates that a CSPRNG must be used, helps protect
 developers from security pitfalls.
