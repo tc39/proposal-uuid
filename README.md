@@ -1,8 +1,12 @@
 # ECMAScript proposal: JavaScript standard library UUID
 
-Champions: [Benjamin Coe](https://github.com/bcoe)
-
 Status: early draft, never presented to TC39
+
+## Authors
+
+* Benjamin Coe ([@bcoe](https://github.com/bcoe))
+* Robert Kieffer ([@broofa](https://github.com/broofa))
+* Christoph Tavan ([@ctavan](https://github.com/ctavan))
 
 ## Synopsis
 
