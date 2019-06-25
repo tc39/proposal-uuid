@@ -25,8 +25,7 @@ standard library.
 ### Developers "re-inventing the wheel" is potentially harmful
 
 Developers who have not been exposed to RFC 4122 might naturally opt to invent their own approaches
-to UUID generation, potentially using `Math.random()` (in
-[TIFU by using `Math.random()`][tifu]
+to UUID generation, potentially using `Math.random()` (in [TIFU by using `Math.random()`][tifu]
 there's an in-depth discussion of why a Cryptographically-Secure-Pseudo-Random-Number-Generator
 (_CSPRNG_) should be used when generating UUIDs).
 
