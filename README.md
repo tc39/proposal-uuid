@@ -25,12 +25,13 @@ standard library.
 ### Developers "re-inventing the wheel" is potentially harmful
 
 Developers who have not been exposed to RFC 4122 might naturally opt to invent their own approaches
-to UUID generation, potentially using `Math.random()`.
+to UUID generation, potentially using `Math.random()` (in [TIFU by using `Math.random()`]
+](https://medium.com/@betable/tifu-by-using-math-random-f1c308c4fd9d) there's an in-depth
+discussion of why a Cryptographically-Secure-Pseudo-Random-Number-Generator (_CSPRNG_) should be
+used when generating UUIDs).
 
-It's well documented that
-[`Math.random()` is not cryptographically secure](https://v8.dev/blog/math-random), by instead
-exposing users to the standard library UUID we prevent the pitfalls that go hand in hand with
-home-grown implementations.
+Introducing a UUID standard library, which dictates that a CSPRNG must be used, helps protect
+developers from security pitfalls.
 
 ## Overview
 
@@ -60,14 +61,13 @@ Version 4 algorithm is most widely used:
 | v5                | 231        | 1    |
 | v3                | 29         | .1   |
 
-### Reasons for not Supporting Other UUID Versions
+### Regarding other UUID versions
 
-While there is utility in other UUID versions, we are advocating starting with the minimal API
-surface possible, that supports a large percentage of users.
+While there is utility in other UUID versions, we are advocating starting with a minimal API
+surface that supports a large percentage of users _(the string representation of Version 4 UUIDs)._
 
-It is expected that additional functionality such as version 1, 3, and 5 UUIDs, parsing and
-validation, and binary uuid formats will be provided in future versions of this specification, and
-exposed as named exports to allow for backward compatibility with the current proposal.
+If research and/or user feedback later indicates that additional functionality, such as versions 1,
+3, and 5 UUIDs, would add value, this proposal does not preclude these additions.
 
 ## Use cases
 
