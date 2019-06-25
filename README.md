@@ -26,7 +26,7 @@ standard library.
 
 Developers who have not been exposed to RFC 4122 might naturally opt to invent their own approaches
 to UUID generation, potentially using `Math.random()` (in
-[TIFU by using `Math.random()`](https://medium.com/@betable/tifu-by-using-math-random-f1c308c4fd9d)
+[TIFU by using `Math.random()`][tifu]
 there's an in-depth discussion of why a Cryptographically-Secure-Pseudo-Random-Number-Generator
 (_CSPRNG_) should be used when generating UUIDs).
 
@@ -35,9 +35,9 @@ developers from security pitfalls.
 
 ## Overview
 
-The `uuid` standard library provides an API for generating RFC 4122 identifiers.
+The UUID standard library provides an API for generating RFC 4122 identifiers.
 
-The default export of the `uuid` library is the
+The default export of the UUID library is the
 [Version 4 Algorithm](https://tools.ietf.org/html/rfc4122#section-4.4), and returns the string
 representation _(as described in RFC-4122)_.
 
@@ -84,7 +84,7 @@ How do folks in the community use RFC 4122 UUIDs?
 **what are the advantages to uuid being in the standard library?**
 
 - The `uuid` module is relied on by `> 2,600,000` repos on GitHub (June 2019). Guaranteeing a
-  secure, consistent, well-maintained `uuid` module provides value to millions of developers.
+  secure, consistent, well-maintained UUID implementation provides value to millions of developers.
 - The 12 kb `uuid` module is downloaded from npm `> 62,000,000` times a month (June 2019); making
   it available in the standard library eventually saves TBs of bandwidth globally. If we continue
   to address user needs, such as `uuid`, with the standard library, bandwidth savings add up.
@@ -106,6 +106,8 @@ How do folks in the community use RFC 4122 UUIDs?
 
 - [IETF RFC 4122][rfc-4122]
 - [JavaScript Standard Library Proposal][standard-library-proposal]
+- [TIFU by using `Math.random()`][tifu]
 
 [rfc-4122]: https://tools.ietf.org/html/rfc4122
 [standard-library-proposal]: https://github.com/tc39/proposal-javascript-standard-library
+[tifu]: https://medium.com/@betable/tifu-by-using-math-random-f1c308c4fd9d
