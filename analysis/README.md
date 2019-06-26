@@ -16,18 +16,18 @@ to analyze usage patterns of the `uuid` npm module. The analysis roughly does th
 
 ## Results
 
-It seems evident that v4 UUIDs are by far the most popular UUID version. They are used in 75.9% of
+It seems evident that v4 UUIDs are by far the most popular UUID version. They are used in 77.0% of
 repositories, that depend on `uuid`. Weighted by GitHub watch count, v4 UUIDs were even more
-popular, adding up to 88.1% of popularity.
+popular, adding up to 89.5% of popularity.
 
 Usage of v1 UUIDs is also significant while v3/5 UUIDs don't seem to be widely used.
 
-| version | watch_count | watch_count_ratio | repo_count | repo_count_ratio |
-| ------- | ----------- | ----------------- | ---------- | ---------------- |
-| v4      | 149803      | 88.1%             | 4316       | 75.9%            |
-| v1      | 17115       | 10.1%             | 1254       | 22.0%            |
-| v5      | 2176        | 1.3%              | 67         | 1.2%             |
-| v3      | 1035        | 0.6%              | 52         | 0.9%             |
+| version | repo_count | repo_count_ratio | watch_count | watch_count_ratio |
+| ------- | ---------- | ---------------- | ----------- | ----------------- |
+| v4      | 4315       | 77.0%            | 149802      | 89.5%             |
+| v1      | 1228       | 21.9%            | 16219       | 9.7%              |
+| v5      | 51         | 0.9%             | 1290        | 0.8%              |
+| v3      | 11         | 0.2%             | 116         | 0.1%              |
 
 The top 100 repositories (by GitHub watch count) for each UUID version are listed in
 [this Google Sheet](https://docs.google.com/spreadsheets/d/1NjrsNgEZaXs10tXBRGgMpA-9rh_a3rEQlKfi1TpAnYI)

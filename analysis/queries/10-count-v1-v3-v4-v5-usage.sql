@@ -37,12 +37,12 @@ WITH
   )
 SELECT
   version,
+  COUNT(DISTINCT repos.repo_name) AS repo_count,
+  COUNT(DISTINCT repos.repo_name) / SUM(COUNT(DISTINCT repos.repo_name)) OVER () AS repo_count_ratio,
   SUM(repos.watch_count) AS watch_count,
   SUM(repos.watch_count) / SUM(SUM(repos.watch_count)) OVER () AS watch_count_ratio,
   SUM(repos.line_count) AS line_count,
-  SUM(repos.line_count) / SUM(SUM(repos.line_count)) OVER () AS line_count_ratio,
-  COUNT(DISTINCT repos.repo_name) AS repo_count,
-  COUNT(DISTINCT repos.repo_name) / SUM(COUNT(DISTINCT repos.repo_name)) OVER () AS repo_count_ratio
+  SUM(repos.line_count) / SUM(SUM(repos.line_count)) OVER () AS line_count_ratio
 FROM
   repos
 GROUP BY
