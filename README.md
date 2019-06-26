@@ -49,6 +49,8 @@ import uuid from "lib:uuid"; // (Note: exact import syntax is TBD).
 uuid(); // 52e6953d-edbe-4953-be2e-65ed3836b2f0
 ```
 
+All random values in UUIDs produced by this API must be generated from a **[cryptographically secure](https://en.wikipedia.org/wiki/Cryptographically_secure_pseudorandom_number_generator)** source.
+
 ## Out of scope
 
 Algorithms described in RFC 4122 other than Version 4 are not initially supported.
