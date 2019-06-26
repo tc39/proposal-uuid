@@ -4,9 +4,9 @@ Status: early draft, never presented to TC39
 
 ## Authors
 
-* Benjamin Coe ([@bcoe](https://github.com/bcoe))
-* Robert Kieffer ([@broofa](https://github.com/broofa))
-* Christoph Tavan ([@ctavan](https://github.com/ctavan))
+- Benjamin Coe ([@bcoe](https://github.com/bcoe))
+- Robert Kieffer ([@broofa](https://github.com/broofa))
+- Christoph Tavan ([@ctavan](https://github.com/ctavan))
 
 ## Synopsis
 
@@ -94,10 +94,17 @@ How do folks in the community use RFC 4122 UUIDs?
 
 **How unique are v4 UUIDs?**
 
-If you ignore the [challenges involved in random number generation](https://hackaday.com/2017/11/02/what-is-entropy-and-how-do-i-get-more-of-it/), then v4 UUIDs are unique enough for all but the most stringent use cases.  For example, the odds of a collision among 10 quadrillion version 4 UUIDs (equivalent to generating a million UUIDs/second for 327 years) is roughly one in a million (p = 0.000001).  [Source](https://en.wikipedia.org/wiki/Universally_unique_identifier#Collisions).
+If you ignore the
+[challenges involved in random number generation](https://hackaday.com/2017/11/02/what-is-entropy-and-how-do-i-get-more-of-it/),
+then v4 UUIDs are unique enough for all but the most stringent use cases. For example, the odds of
+a collision among 10 quadrillion version 4 UUIDs (equivalent to generating a million UUIDs/second
+for 327 years) is roughly one in a million (p = 0.000001).
+[Source](https://en.wikipedia.org/wiki/Universally_unique_identifier#Collisions).
 
-That said, the influence of random number generation can not, and should not, be ignored.  The odds of collision increase dramatically if numbers are not sufficiently random.  It is for this reason that this spec mandates that any random numbers used come from a "cryptographically secure" source, thereby (hopefully) avoiding such issues.
-
+That said, the influence of random number generation can not, and should not, be ignored. The odds
+of collision increase dramatically if numbers are not sufficiently random. It is for this reason
+that this spec mandates that any random numbers used come from a "cryptographically secure" source,
+thereby (hopefully) avoiding such issues.
 
 ## TODO
 
