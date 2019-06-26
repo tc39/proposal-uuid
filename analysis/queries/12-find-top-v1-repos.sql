@@ -16,6 +16,7 @@ USING
   (repo_name)
 WHERE
   REGEXP_CONTAINS(lines.line, r"v1")
+  AND files.path NOT LIKE '%flow-typed%' -- would result in a false-positive match
 GROUP BY
   repo_name
 ORDER BY

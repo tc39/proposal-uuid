@@ -20,6 +20,7 @@ WITH
       (repo_name)
     WHERE
       REGEXP_CONTAINS(lines.line, r"v[1345]")
+      AND files.path NOT LIKE '%flow-typed%' -- would result in a false-positive match
   ),
   repos AS (
     SELECT
