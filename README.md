@@ -84,13 +84,20 @@ How do folks in the community use RFC 4122 UUIDs?
 
 ## FAQ
 
-**what are the advantages to uuid being in the standard library?**
+**What are the advantages to uuid being in the standard library?**
 
 - The `uuid` module is relied on by `> 2,600,000` repos on GitHub (June 2019). Guaranteeing a
   secure, consistent, well-maintained UUID implementation provides value to millions of developers.
 - The 12 kb `uuid` module is downloaded from npm `> 62,000,000` times a month (June 2019); making
   it available in the standard library eventually saves TBs of bandwidth globally. If we continue
   to address user needs, such as `uuid`, with the standard library, bandwidth savings add up.
+
+**How unique are v4 UUIDs?**
+
+If you ignore the [challenges involved in random number generation](https://hackaday.com/2017/11/02/what-is-entropy-and-how-do-i-get-more-of-it/), then v4 UUIDs are unique enough for all but the most stringent use cases.  For example, the odds of a collision among 10 quadrillion version 4 UUIDs (equivalent to generating a million UUIDs/second for 327 years) is roughly one in a million (p = 0.000001).  [Source](https://en.wikipedia.org/wiki/Universally_unique_identifier#Collisions).
+
+That said, the influence of random number generation can not, and should not, be ignored.  The odds of collision increase dramatically if numbers are not sufficiently random.  It is for this reason that this spec mandates that any random numbers used come from a "cryptographically secure" source, thereby (hopefully) avoiding such issues.
+
 
 ## TODO
 
