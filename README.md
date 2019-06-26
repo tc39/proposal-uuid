@@ -4,9 +4,9 @@ Status: early draft, never presented to TC39
 
 ## Authors
 
-* Benjamin Coe ([@bcoe](https://github.com/bcoe))
-* Robert Kieffer ([@broofa](https://github.com/broofa))
-* Christoph Tavan ([@ctavan](https://github.com/ctavan))
+- Benjamin Coe ([@bcoe](https://github.com/bcoe))
+- Robert Kieffer ([@broofa](https://github.com/broofa))
+- Christoph Tavan ([@ctavan](https://github.com/ctavan))
 
 ## Synopsis
 
@@ -49,7 +49,9 @@ import uuid from "lib:uuid"; // (Note: exact import syntax is TBD).
 uuid(); // 52e6953d-edbe-4953-be2e-65ed3836b2f0
 ```
 
-All random values in UUIDs produced by this API must be generated from a **[cryptographically secure](https://en.wikipedia.org/wiki/Cryptographically_secure_pseudorandom_number_generator)** source.
+All random values in UUIDs produced by this API must be generated from a
+**[cryptographically secure](https://en.wikipedia.org/wiki/Cryptographically_secure_pseudorandom_number_generator)**
+source.
 
 ## Out of scope
 
