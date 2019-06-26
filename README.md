@@ -101,10 +101,11 @@ a collision among 10 quadrillion version 4 UUIDs (equivalent to generating a mil
 for 327 years) is roughly one in a million (p = 0.000001).
 [Source](https://en.wikipedia.org/wiki/Universally_unique_identifier#Collisions).
 
-That said, the influence of random number generation can not, and should not, be ignored. The odds
-of collision increase dramatically if numbers are not sufficiently random. It is for this reason
-that this spec mandates that any random numbers used come from a "cryptographically secure" source,
-thereby (hopefully) avoiding such issues.
+That said, the quality of the random number generator is vital to uniqueness. Flawed RNG
+implementations have led to
+[UUID collisions in real-world systems](https://github.com/bcoe/proposal-standard-library-uuid/issues/20).
+It is for this reason that this spec mandates that any random numbers used come from a
+"cryptographically secure" source, thereby (hopefully) avoiding such issues.
 
 ## TODO
 
