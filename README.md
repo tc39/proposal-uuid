@@ -46,7 +46,7 @@ representation _(as described in RFC-4122)_.
 
 ```js
 import uuid from "lib:uuid"; // (Note: exact import syntax is TBD).
-uuid(); // 52e6953d-edbe-4953-be2e-65ed3836b2f0
+uuid(); // "52e6953d-edbe-4953-be2e-65ed3836b2f0"
 ```
 
 ## Out of scope
