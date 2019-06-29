@@ -4,9 +4,9 @@ Status: early draft, never presented to TC39
 
 ## Authors
 
-* Benjamin Coe ([@bcoe](https://github.com/bcoe))
-* Robert Kieffer ([@broofa](https://github.com/broofa))
-* Christoph Tavan ([@ctavan](https://github.com/ctavan))
+- Benjamin Coe ([@bcoe](https://github.com/bcoe))
+- Robert Kieffer ([@broofa](https://github.com/broofa))
+- Christoph Tavan ([@ctavan](https://github.com/ctavan))
 
 ## Synopsis
 
@@ -48,6 +48,9 @@ representation _(as described in RFC-4122)_.
 import uuid from "lib:uuid"; // (Note: exact import syntax is TBD).
 uuid(); // "52e6953d-edbe-4953-be2e-65ed3836b2f0"
 ```
+
+All random values in UUIDs produced by this API must be generated from a **[cryptographically
+secure][csprng]** source.
 
 ## Out of scope
 
@@ -110,7 +113,9 @@ How do folks in the community use RFC 4122 UUIDs?
 - [IETF RFC 4122][rfc-4122]
 - [JavaScript Standard Library Proposal][standard-library-proposal]
 - [TIFU by using `Math.random()`][tifu]
+- [Cryptographically secure pseudorandom number generator][csprng]
 
 [rfc-4122]: https://tools.ietf.org/html/rfc4122
 [standard-library-proposal]: https://github.com/tc39/proposal-javascript-standard-library
 [tifu]: https://medium.com/@betable/tifu-by-using-math-random-f1c308c4fd9d
+[csprng]: https://en.wikipedia.org/wiki/Cryptographically_secure_pseudorandom_number_generator
