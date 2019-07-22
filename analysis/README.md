@@ -98,9 +98,24 @@ Usage of `v1` UUIDs is also significant while `v3`/`v5` UUIDs don't seem to be w
 | v3      | 11         | 0.2%             | 116         | 0.1%              |
 
 The top 100 repositories (by GitHub watch count) for each UUID version are listed in
-[this Google Sheet](https://docs.google.com/spreadsheets/d/1NjrsNgEZaXs10tXBRGgMpA-9rh_a3rEQlKfi1TpAnYI)
+[this Google Sheet](google-sheet).
 
-All results as of June 26, 2019.
+Results as of June 26, 2019.
+
+### Accidental `v1` Usage
+
+Pull-requests to remove `v1` UUIDs in favor of `v4` UUIDs for the most popular repos which made use
+of `v1` UUIDs have been sent and so far all of them have been accepted:
+
+* https://github.com/storybookjs/storybook/pull/7397
+* https://github.com/TryGhost/Ghost/pull/10871
+* https://github.com/gatsbyjs/gatsby/pull/15407
+
+It is still work-in-progress to discuss with the authors of more Open Source projects whether `v1`
+usage was "accidental" and could be replaced with `v4` UUIDs. Results of these efforts are tracked
+in [this Google Sheet](google-sheet).
+
+Feedback as of July 22, 2019.
 
 ## How to Reproduce
 
@@ -132,3 +147,4 @@ node analyze.js -p PROJECT -d DATASET -q 01 -m execute
 [rfc-4122]: https://tools.ietf.org/html/rfc4122
 [bigquery]: https://github.com/fhoffa/analyzing_github#github-contents
 [uuid-npm]: https://www.npmjs.com/package/uuid
+[google-sheet]: https://docs.google.com/spreadsheets/d/1NjrsNgEZaXs10tXBRGgMpA-9rh_a3rEQlKfi1TpAnYI
