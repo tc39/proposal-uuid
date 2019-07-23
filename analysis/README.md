@@ -107,9 +107,9 @@ Results as of June 26, 2019.
 Pull-requests to remove `v1` UUIDs in favor of `v4` UUIDs for the most popular repos which made use
 of `v1` UUIDs have been sent and so far all of them have been accepted:
 
-* https://github.com/storybookjs/storybook/pull/7397
-* https://github.com/TryGhost/Ghost/pull/10871
-* https://github.com/gatsbyjs/gatsby/pull/15407
+- https://github.com/storybookjs/storybook/pull/7397
+- https://github.com/TryGhost/Ghost/pull/10871
+- https://github.com/gatsbyjs/gatsby/pull/15407
 
 It is still work-in-progress to discuss with the authors of more Open Source projects whether `v1`
 usage was "accidental" and could be replaced with `v4` UUIDs. Results of these efforts are tracked

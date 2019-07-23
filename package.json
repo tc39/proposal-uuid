@@ -5,7 +5,7 @@
     "prebuild": "mkdirp dist",
     "build": "npm test && ecmarkup --verbose spec.html dist/index.html --css dist/ecmarkup.css --js dist/ecmarkup.js",
     "watch": "npm run build -- --watch",
-    "fix": "prettier --write ./README.md"
+    "fix": "prettier --write ./README.md ./analysis/README.md ./analysis/analyze.js"
   },
   "devDependencies": {
     "ecmarkup": "^3.12.0",
