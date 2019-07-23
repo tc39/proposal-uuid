@@ -56,7 +56,7 @@ secure][csprng]** source.
 
 Algorithms described in RFC 4122 other than Version 4 are not initially supported.
 
-Statistics we've collected ([see data/README.md](./data/README.md)) indicate that the Version 4
+Statistics we've collected ([see analysis/README.md](github-analysis)) indicate that the Version 4
 algorithm is most widely used:
 
 | Algorithm Version | Repo Count | %     | Weighted by Watch Count | %     |
@@ -133,3 +133,4 @@ It is for this reason that this spec mandates that any random numbers used come 
 [standard-library-proposal]: https://github.com/tc39/proposal-javascript-standard-library
 [tifu]: https://medium.com/@betable/tifu-by-using-math-random-f1c308c4fd9d
 [csprng]: https://en.wikipedia.org/wiki/Cryptographically_secure_pseudorandom_number_generator
+[github-analysis]: ./analysis/README.md
