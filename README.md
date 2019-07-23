@@ -109,6 +109,14 @@ implementations have led to
 It is for this reason that this spec mandates that any random numbers used come from a
 "cryptographically secure" source, thereby (hopefully) avoiding such issues.
 
+**Why does the standard library API treat `v4` UUIDs as a default instead of being symmetric in the
+different versions?**
+
+An analysis of popular Open Source projects that were using `v1` UUIDs has shown, that the majority
+of identified projects was "accidentally" using `v1` UUIDs in situations where `v4` UUIDs would
+have been a more appropriate choice. Please [refer to analysis/README.md](github-analysis) for more
+information.
+
 ## TODO
 
 - [x] Identify champion to advance addition (stage-1)
