@@ -18,9 +18,9 @@ Following the
 assume that developers should always use the simplest UUID version that fulfills a given use case
 in order to reduces the risk of unexpected problems.
 
-- If all you need is a universally unique identifier you should always use `v4` UUIDs.
-- Only if you need time-ordering you should use `v1`.
-- Only if you need namespacing you should use `v3`/`v5`.
+- You should use `v4` if all you need is a universally unique identifier.
+- You should use `v1` if and only if you need time-ordering.
+- You should use `v3`/`v5` if and only if you need namespacing.
 
 In particular, accidentally using `v1` instead of `v4` UUIDs in cases where the developer is simply
 expecting a random value but is not aware of the fact that the generated IDs are time-ordered can
