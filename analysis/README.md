@@ -53,9 +53,9 @@ the initial proposal.
 
 ### Accidental `v1` Usage
 
-**Hypothesis 2:** _A considerable (=more than 50%) amount of `v1` UUID usage is "accidental" in the
-sense that for the given use case the special semantics of `v1` UUIDs are not needed and therefore
-v4` would be the more appropriate choice._
+**Hypothesis 2:** _A non-negligible amount of `v1` UUID usage is "accidental" in the sense that for
+the given use case the special semantics of `v1` UUIDs are not needed and therefore `v4` would be
+the more appropriate choice._
 
 This is based on the observation that
 [`v1` UUIDs are documented "above the fold"](https://github.com/bcoe/proposal-standard-library-uuid/issues/4#issuecomment-499976784)
@@ -84,6 +84,8 @@ following:
 
 ### Version Distribution
 
+We consider **Hypothesis 1** confirmed.
+
 It seems evident that `v4` UUIDs are by far the most popular UUID version. They are used in 77.0%
 of repositories, that depend on [`uuid` npm module](uuid-npm). Weighted by GitHub watch count, `v4`
 UUIDs even more popular, adding up to 89.5% of popularity.
@@ -104,8 +106,14 @@ Results as of June 26, 2019.
 
 ### Accidental `v1` Usage
 
-Pull-requests to remove `v1` UUIDs in favor of `v4` UUIDs for the most popular repos which made use
-of `v1` UUIDs have been sent and so far all of them have been accepted:
+We consider **Hypothesis 2** confirmed.
+
+So far the top 10 projects which make use of `v1` UUIDs have been investigated and only one
+inevitable use case of `v1` UUIDs has been identified (https://github.com/sequelize/sequelize). We
+consider this amount of "accidental" `v1` UUID usage non-negligible.
+
+Pull-requests to remove `v1` UUIDs in favor of `v4` UUIDs for some of the actively maintained repos
+which made use of `v1` UUIDs have been sent and so far all of them have been accepted:
 
 - https://github.com/storybookjs/storybook/pull/7397
 - https://github.com/TryGhost/Ghost/pull/10871
