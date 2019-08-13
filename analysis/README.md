@@ -109,13 +109,16 @@ of `v1` UUIDs have been sent and so far all of them have been accepted:
 
 - https://github.com/storybookjs/storybook/pull/7397
 - https://github.com/TryGhost/Ghost/pull/10871
+- https://github.com/influxdata/chronograf/pull/5235
 - https://github.com/gatsbyjs/gatsby/pull/15407
+- https://github.com/rickbergfalk/sqlpad/pull/451
+- https://github.com/microsoft/azure-pipelines-tasks/pull/11021
 
 It is still work-in-progress to discuss with the authors of more Open Source projects whether `v1`
 usage was "accidental" and could be replaced with `v4` UUIDs. Results of these efforts are tracked
 in [this Google Sheet](google-sheet).
 
-Feedback as of July 22, 2019.
+Feedback as of August 13, 2019.
 
 ## How to Reproduce
 

@@ -112,10 +112,14 @@ It is for this reason that this spec mandates that any random numbers used come 
 **Why does the standard library API treat `v4` UUIDs as a default instead of being symmetric in the
 different versions?**
 
-An analysis of popular Open Source projects that were using `v1` UUIDs has shown, that the majority
-of identified projects was "accidentally" using `v1` UUIDs in situations where `v4` UUIDs would
-have been a more appropriate choice. Please [refer to analysis/README.md](github-analysis) for more
-information.
+An analysis of popular Open Source projects that were using `v1` UUIDs has shown that the majority
+of identified projects did not have a compelling reason for using `v1` UUIDs, and with education
+were willing to migrate to `v4` UUIDs.
+
+We have reached out to the developers of the 6 most popular (based on watch count) actively
+maintained GitHub projects where this was the case and all of them accepted our pull requests.
+
+Please refer to [analysis/README.md](github-analysis#accidental-v1-usage) for more information.
 
 ## TODO
 
