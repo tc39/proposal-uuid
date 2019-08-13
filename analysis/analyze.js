@@ -32,7 +32,6 @@ async function createTableFromQuery(bigquery, dataset, query) {
       query: sql,
       destination,
       location: 'US'
-      // useQueryCache: false,
       // writeDisposition: 'WRITE_TRUNCATE', // forced overwrite, default is WRITE_EMPTY
     });
 
