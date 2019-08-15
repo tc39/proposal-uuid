@@ -45,7 +45,7 @@ The default export of the UUID library is the
 representation _(as described in RFC-4122)_.
 
 ```js
-import uuid from "lib:uuid"; // (Note: exact import syntax is TBD).
+import uuid from 'lib:uuid'; // (Note: exact import syntax is TBD).
 uuid(); // "52e6953d-edbe-4953-be2e-65ed3836b2f0"
 ```
 
@@ -56,16 +56,15 @@ secure][csprng]** source.
 
 Algorithms described in RFC 4122 other than Version 4 are not initially supported.
 
-Statistics we've collected
-([see issue #4](https://github.com/bcoe/proposal-standard-module-uuid/issues/4)) indicate that the
-Version 4 algorithm is most widely used:
+Statistics we've collected ([see analysis/README.md](github-analysis)) indicate that the Version 4
+algorithm is most widely used:
 
-| Algorithm Version | Repo Count | %    |
-| ----------------- | ---------- | ---- |
-| v4                | 18318      | 79.7 |
-| v1                | 4399       | 19.1 |
-| v5                | 231        | 1    |
-| v3                | 29         | .1   |
+| Algorithm Version | Repo Count | %     | Weighted by Watch Count | %     |
+| ----------------- | ---------- | ----- | ----------------------- | ----- |
+| v4                | 4315       | 77.0% | 149802                  | 89.5% |
+| v1                | 1228       | 21.9% | 16219                   | 9.7%  |
+| v5                | 51         | 0.9%  | 1290                    | 0.8%  |
+| v3                | 11         | 0.2%  | 116                     | 0.1%  |
 
 ### Regarding other UUID versions
 
@@ -110,6 +109,18 @@ implementations have led to
 It is for this reason that this spec mandates that any random numbers used come from a
 "cryptographically secure" source, thereby (hopefully) avoiding such issues.
 
+**Why does the standard library API treat `v4` UUIDs as a default instead of being symmetric in the
+different versions?**
+
+An analysis of popular Open Source projects that were using `v1` UUIDs has shown that the majority
+of identified projects did not have a compelling reason for using `v1` UUIDs, and with education
+were willing to migrate to `v4` UUIDs.
+
+We have reached out to the developers of the 6 most popular (based on watch count) actively
+maintained GitHub projects where this was the case and all of them accepted our pull requests.
+
+Please refer to [analysis/README.md](github-analysis#accidental-v1-usage) for more information.
+
 ## TODO
 
 - [x] Identify champion to advance addition (stage-1)
@@ -134,3 +145,4 @@ It is for this reason that this spec mandates that any random numbers used come 
 [standard-library-proposal]: https://github.com/tc39/proposal-javascript-standard-library
 [tifu]: https://medium.com/@betable/tifu-by-using-math-random-f1c308c4fd9d
 [csprng]: https://en.wikipedia.org/wiki/Cryptographically_secure_pseudorandom_number_generator
+[github-analysis]: ./analysis/README.md
