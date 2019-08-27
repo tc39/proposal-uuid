@@ -86,7 +86,7 @@ How do folks in the community use RFC 4122 UUIDs?
 
 ## FAQ
 
-**What are the advantages to uuid being in the standard library?**
+### What are the advantages to uuid being in the standard library?
 
 - The `uuid` module is relied on by `> 2,600,000` repos on GitHub (June 2019). Guaranteeing a
   secure, consistent, well-maintained UUID implementation provides value to millions of developers.
@@ -94,7 +94,7 @@ How do folks in the community use RFC 4122 UUIDs?
   it available in the standard library eventually saves TBs of bandwidth globally. If we continue
   to address user needs, such as `uuid`, with the standard library, bandwidth savings add up.
 
-**How unique are v4 UUIDs?**
+### How unique are v4 UUIDs?
 
 If you ignore the
 [challenges involved in random number generation](https://hackaday.com/2017/11/02/what-is-entropy-and-how-do-i-get-more-of-it/),
@@ -109,7 +109,7 @@ implementations have led to
 It is for this reason that this spec mandates that any random numbers used come from a
 "cryptographically secure" source, thereby (hopefully) avoiding such issues.
 
-**Why does the standard library API treat `v4` UUIDs as a default?**
+### Why does the standard library API treat `v4` UUIDs as a default?
 
 An analysis of popular Open Source projects that were using `v1` UUIDs has shown that the majority
 of identified projects did not have a compelling reason for using `v1` UUIDs, and with education
