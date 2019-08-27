@@ -99,8 +99,8 @@ How do folks in the community use RFC 4122 UUIDs?
 If you ignore the
 [challenges involved in random number generation](https://hackaday.com/2017/11/02/what-is-entropy-and-how-do-i-get-more-of-it/),
 then v4 UUIDs are unique enough for all but the most stringent use cases. For example, the odds of
-a collision among 10 quadrillion version 4 UUIDs (equivalent to generating a million UUIDs/second
-for 327 years) is roughly one in a million (p = 0.000001).
+a collision among 3.3 quadrillion version 4 UUIDs (equivalent to generating a million UUIDs/second
+for 104 years) is roughly one in a million (p = 0.000001).
 [Source](https://en.wikipedia.org/wiki/Universally_unique_identifier#Collisions).
 
 That said, the quality of the random number generator is vital to uniqueness. Flawed RNG
