@@ -120,6 +120,33 @@ maintained GitHub projects where this was the case and all of them accepted our 
 
 Please refer to [analysis/README.md](github-analysis#accidental-v1-usage) for more information.
 
+### But aren't v1 UUIDs better because they are guaranteed to be unique?
+
+As an oversimplification, `v1` UUIDs consist of two parts: A high-precision `timestamp` and a
+`node` id. [IETF RFC 4122][rfc-4122] contains several requirements that are supposed to ensure that
+the resulting `v1` UUIDs are unique.
+
+- The timestamp has 100 nanosecond resolution and implementations are
+  [required to throw an error or stall](rfc-4122#section-4.2.1.2) on attempts to generate UUIDs at
+  a rate higher than 10M/second on a single `node`. Realistically that's only enforceable within a
+  single thread/process on a single host. Enforcing this across multiple processes / hosts requires
+  non-trivial architectures that run counter to the
+  [main thesis the UUID spec](rfc-4122#section-2): _"One of the main reasons for using UUIDs is
+  that no centralized authority is required to administer them"._
+- The mechanism for generating `node` values preferred by the RFC is to use the host system's IEEE
+  802 MAC address. This made sense back when the RFC was authored and MAC addresses could
+  reasonably be expected to be unique, but this is arguably no longer the case, not with the
+  proliferation of virtual machines and containers where MAC addresses may not be unique
+  [_by design_](https://stackoverflow.com/a/42947044).
+
+So in practice, modern implementations will generate a random 48 bit `node` value each time a
+process is started leaving a probability of 1 in 2<sup>48</sup> for collisions in the `node` part.
+In the unlikely event of such a collision
+[it would take only 75 milliseconds](https://github.com/bcoe/proposal-standard-library-uuid/issues/15#issuecomment-522415349)
+for a duplicate `v1` UUID to appear when generating UUIDs at a rate of 1M/second. So while also
+unlikely, [just like with `v4` UUIDs](#how-unique-are-v4-uuids) there is no practical guarantee
+that `v1` UUIDs are unique.
+
 ## TODO
 
 - [x] Identify champion to advance addition (stage-1)
