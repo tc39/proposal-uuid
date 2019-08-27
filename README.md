@@ -109,8 +109,7 @@ implementations have led to
 It is for this reason that this spec mandates that any random numbers used come from a
 "cryptographically secure" source, thereby (hopefully) avoiding such issues.
 
-**Why does the standard library API treat `v4` UUIDs as a default instead of being symmetric in the
-different versions?**
+**Why does the standard library API treat `v4` UUIDs as a default?**
 
 An analysis of popular Open Source projects that were using `v1` UUIDs has shown that the majority
 of identified projects did not have a compelling reason for using `v1` UUIDs, and with education
