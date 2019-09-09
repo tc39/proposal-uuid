@@ -86,7 +86,7 @@ How do folks in the community use RFC 4122 UUIDs?
 
 ## FAQ
 
-**What are the advantages to uuid being in the standard library?**
+### What are the advantages to uuid being in the standard library?
 
 - The `uuid` module is relied on by `> 2,600,000` repos on GitHub (June 2019). Guaranteeing a
   secure, consistent, well-maintained UUID implementation provides value to millions of developers.
@@ -94,13 +94,13 @@ How do folks in the community use RFC 4122 UUIDs?
   it available in the standard library eventually saves TBs of bandwidth globally. If we continue
   to address user needs, such as `uuid`, with the standard library, bandwidth savings add up.
 
-**How unique are v4 UUIDs?**
+### How unique are v4 UUIDs?
 
 If you ignore the
 [challenges involved in random number generation](https://hackaday.com/2017/11/02/what-is-entropy-and-how-do-i-get-more-of-it/),
 then v4 UUIDs are unique enough for all but the most stringent use cases. For example, the odds of
-a collision among 10 quadrillion version 4 UUIDs (equivalent to generating a million UUIDs/second
-for 327 years) is roughly one in a million (p = 0.000001).
+a collision among 3.3 quadrillion version 4 UUIDs (equivalent to generating a million UUIDs/second
+for 104 years) is roughly one in a million (p = 0.000001).
 [Source](https://en.wikipedia.org/wiki/Universally_unique_identifier#Collisions).
 
 That said, the quality of the random number generator is vital to uniqueness. Flawed RNG
@@ -109,8 +109,7 @@ implementations have led to
 It is for this reason that this spec mandates that any random numbers used come from a
 "cryptographically secure" source, thereby (hopefully) avoiding such issues.
 
-**Why does the standard library API treat `v4` UUIDs as a default instead of being symmetric in the
-different versions?**
+### Why does the standard library API treat `v4` UUIDs as a default?
 
 An analysis of popular Open Source projects that were using `v1` UUIDs has shown that the majority
 of identified projects did not have a compelling reason for using `v1` UUIDs, and with education
@@ -120,6 +119,33 @@ We have reached out to the developers of the 6 most popular (based on watch coun
 maintained GitHub projects where this was the case and all of them accepted our pull requests.
 
 Please refer to [analysis/README.md](github-analysis#accidental-v1-usage) for more information.
+
+### But aren't v1 UUIDs better because they are guaranteed to be unique?
+
+As an oversimplification, `v1` UUIDs consist of two parts: A high-precision `timestamp` and a
+`node` id. [IETF RFC 4122][rfc-4122] contains several requirements that are supposed to ensure that
+the resulting `v1` UUIDs are unique.
+
+- The timestamp has 100 nanosecond resolution and implementations are
+  [required to throw an error or stall](rfc-4122#section-4.2.1.2) on attempts to generate UUIDs at
+  a rate higher than 10M/second on a single `node`. Realistically that's only enforceable within a
+  single thread/process on a single host. Enforcing this across multiple processes / hosts requires
+  non-trivial architectures that run counter to the
+  [main thesis the UUID spec](rfc-4122#section-2): _"One of the main reasons for using UUIDs is
+  that no centralized authority is required to administer them"._
+- The mechanism for generating `node` values preferred by the RFC is to use the host system's IEEE
+  802 MAC address. This made sense back when the RFC was authored and MAC addresses could
+  reasonably be expected to be unique, but this is arguably no longer the case, not with the
+  proliferation of virtual machines and containers where MAC addresses may not be unique
+  [_by design_](https://stackoverflow.com/a/42947044).
+
+So in practice, modern implementations will generate a random 48 bit `node` value each time a
+process is started leaving a probability of 1 in 2<sup>48</sup> for collisions in the `node` part.
+In the unlikely event of such a collision
+[it would take only 75 milliseconds](https://github.com/bcoe/proposal-standard-library-uuid/issues/15#issuecomment-522415349)
+for a duplicate `v1` UUID to appear when generating UUIDs at a rate of 1M/second. So while also
+unlikely, [just like with `v4` UUIDs](#how-unique-are-v4-uuids) there is no practical guarantee
+that `v1` UUIDs are unique.
 
 ## TODO
 
