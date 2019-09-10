@@ -118,7 +118,7 @@ were willing to migrate to `v4` UUIDs.
 We have reached out to the developers of the 6 most popular (based on watch count) actively
 maintained GitHub projects where this was the case and all of them accepted our pull requests.
 
-Please refer to [analysis/README.md][github-analysis#accidental-v1-usage] for more information.
+Please refer to [analysis/README.md][github-analysis] for more information.
 
 ### But aren't v1 UUIDs better because they are guaranteed to be unique?
 
