@@ -99,8 +99,8 @@ Usage of `v1` UUIDs is also significant while `v3`/`v5` UUIDs don't seem to be w
 | v5      | 51         | 0.9%             | 1290        | 0.8%              |
 | v3      | 11         | 0.2%             | 116         | 0.1%              |
 
-The top 100 repositories (by GitHub watch count) for each UUID version are listed in
-[this Google Sheet][google-sheet].
+The top 100 repositories (by GitHub watch count) for each UUID version are listed in [this Google
+Sheet][google-sheet].
 
 Results as of June 26, 2019.
 

@@ -56,8 +56,8 @@ secure][csprng]** source.
 
 Algorithms described in RFC 4122 other than Version 4 are not initially supported.
 
-Statistics we've collected ([see analysis/README.md][github-analysis]) indicate that the Version 4
-algorithm is most widely used:
+Statistics we've collected ([see analysis/README.md](./analysis/README.md)) indicate that the
+Version 4 algorithm is most widely used:
 
 | Algorithm Version | Repo Count | %     | Weighted by Watch Count | %     |
 | ----------------- | ---------- | ----- | ----------------------- | ----- |
@@ -118,7 +118,8 @@ were willing to migrate to `v4` UUIDs.
 We have reached out to the developers of the 6 most popular (based on watch count) actively
 maintained GitHub projects where this was the case and all of them accepted our pull requests.
 
-Please refer to [analysis/README.md][github-analysis] for more information.
+Please refer to [analysis/README.md](./analysis/README.md#accidental-v1-usage) for more
+information.
 
 ### But aren't v1 UUIDs better because they are guaranteed to be unique?
 
@@ -127,12 +128,12 @@ As an oversimplification, `v1` UUIDs consist of two parts: A high-precision `tim
 the resulting `v1` UUIDs are unique.
 
 - The timestamp has 100 nanosecond resolution and implementations are
-  [required to throw an error or stall][rfc-4122#section-4.2.1.2] on attempts to generate UUIDs at
-  a rate higher than 10M/second on a single `node`. Realistically that's only enforceable within a
-  single thread/process on a single host. Enforcing this across multiple processes / hosts requires
-  non-trivial architectures that run counter to the
-  [main thesis the UUID spec][rfc-4122#section-2]: _"One of the main reasons for using UUIDs is
-  that no centralized authority is required to administer them"._
+  [required to throw an error or stall](https://tools.ietf.org/html/rfc4122#section-4.2.1.2) on
+  attempts to generate UUIDs at a rate higher than 10M/second on a single `node`. Realistically
+  that's only enforceable within a single thread/process on a single host. Enforcing this across
+  multiple processes / hosts requires non-trivial architectures that run counter to the
+  [main thesis the UUID spec](https://tools.ietf.org/html/rfc4122#section-2): _"One of the main
+  reasons for using UUIDs is that no centralized authority is required to administer them"._
 - The mechanism for generating `node` values preferred by the RFC is to use the host system's IEEE
   802 MAC address. This made sense back when the RFC was authored and MAC addresses could
   reasonably be expected to be unique, but this is arguably no longer the case, not with the
@@ -171,4 +172,3 @@ that `v1` UUIDs are unique.
 [standard-library-proposal]: https://github.com/tc39/proposal-javascript-standard-library
 [tifu]: https://medium.com/@betable/tifu-by-using-math-random-f1c308c4fd9d
 [csprng]: https://en.wikipedia.org/wiki/Cryptographically_secure_pseudorandom_number_generator
-[github-analysis]: ./analysis/README.md
