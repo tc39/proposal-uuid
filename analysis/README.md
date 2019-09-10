@@ -33,7 +33,7 @@ have very negative consequences:
   be leaked (even though most modern implementations no longer leak the MAC address). See:
   [“This privacy hole was used when locating the creator of the Melissa virus.”](https://en.wikipedia.org/wiki/Universally_unique_identifier#cite_note-11)
 
-We want to analyze current usage of the [`uuid` npm module](uuid-npm) in Open Source projects in
+We want to analyze current usage of the [`uuid` npm module][uuid-npm] in Open Source projects in
 order to design an appropriate API for the UUID standard library.
 
 ## Hypothesis
@@ -59,7 +59,7 @@ the more appropriate choice._
 
 This is based on the observation that
 [`v1` UUIDs are documented "above the fold"](https://github.com/bcoe/proposal-standard-library-uuid/issues/4#issuecomment-499976784)
-in the [`uuid` npm module](uuid-npm) and that `v1` sounds much more like the "default" UUID version
+in the [`uuid` npm module][uuid-npm] and that `v1` sounds much more like the "default" UUID version
 rather than `v4`.
 
 **Consequence 2:** If above hypothesis can be validated we will propose an API that favors `v4`
@@ -68,7 +68,7 @@ propose an API that is symmetric in the different UUID versions.
 
 ## Methodology
 
-Google provides a [public BigQuery Dataset](bigquery) that contains all Open Source code from
+Google provides a [public BigQuery Dataset][bigquery] that contains all Open Source code from
 GitHub and that is updated on a weekly basis.
 
 This directory contains some queries and helper scripts which make use of the GitHub data in order
@@ -99,8 +99,8 @@ Usage of `v1` UUIDs is also significant while `v3`/`v5` UUIDs don't seem to be w
 | v5      | 51         | 0.9%             | 1290        | 0.8%              |
 | v3      | 11         | 0.2%             | 116         | 0.1%              |
 
-The top 100 repositories (by GitHub watch count) for each UUID version are listed in
-[this Google Sheet](google-sheet).
+The top 100 repositories (by GitHub watch count) for each UUID version are listed in [this Google
+Sheet][google-sheet].
 
 Results as of June 26, 2019.
 
@@ -124,7 +124,7 @@ which made use of `v1` UUIDs have been sent and so far all of them have been acc
 
 It is still work-in-progress to discuss with the authors of more Open Source projects whether `v1`
 usage was "accidental" and could be replaced with `v4` UUIDs. Results of these efforts are tracked
-in [this Google Sheet](google-sheet).
+in [this Google Sheet][google-sheet].
 
 Feedback as of August 13, 2019.
 
