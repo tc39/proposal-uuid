@@ -45,7 +45,9 @@ The default export of the UUID library is the
 representation _(as described in RFC-4122)_.
 
 ```js
-import uuid from 'lib:uuid'; // (Note: exact import syntax is TBD).
+// We're not yet certain as to how the API will be accessed (whether it's in the global, or a
+// future built-in module), and this will be part of the investigative process as we continue
+// working on the proposal.
 uuid(); // "52e6953d-edbe-4953-be2e-65ed3836b2f0"
 ```
 
