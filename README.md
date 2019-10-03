@@ -1,6 +1,6 @@
 # ECMAScript proposal: JavaScript standard library UUID
 
-Status: early draft, never presented to TC39
+Status: Stage 1
 
 ## Authors
 
@@ -153,8 +153,8 @@ that `v1` UUIDs are unique.
 ## TODO
 
 - [x] Identify champion to advance addition (stage-1)
-- [ ] Prose outlining the problem or need and general shape of the solution (stage-1)
-- [ ] Illustrative examples of usage (stage-1)
+- [x] Prose outlining the problem or need and general shape of the solution (stage-1)
+- [x] Illustrative examples of usage (stage-1)
 - [x] High-level API (stage-1)
 - [ ] Initial spec text (stage-2)
 - [ ] Babel plugin (stage-2)
