@@ -150,6 +150,21 @@ for a duplicate `v1` UUID to appear when generating UUIDs at a rate of 1M/second
 unlikely, [just like with `v4` UUIDs](#how-unique-are-v4-uuids) there is no practical guarantee
 that `v1` UUIDs are unique.
 
+### Are there privacy concerns related to v1 UUIDS?
+
+If implementations follow
+[the primary recommendations of RFC 4122](https://tools.ietf.org/html/rfc4122#section-4.1.6) then
+`v1` UUIDs would indeed leak the hardware MAC address of the machine where they are being created.
+[As discussed above](#but-arent-v1-uuids-better-because-they-are-guaranteed-to-be-unique) this
+would most likely not be the case in modern JavaScript implementations where hardware MAC addresses
+are either unavailable (browser, serverless functions) or not necessarily unique
+([containers](https://stackoverflow.com/a/42947044)). However, there are
+[rumors that the presence of the MAC address lead to the arrest of the authors of the Melissa Virus](https://news.ycombinator.com/item?id=8575606).
+
+In any case the exact creation time of any `v1` UUID will be contained within the UUID. This alone
+can be a privacy or data protection concern for many use cases (e.g. leaking the creation timestamp
+of a user account) so it's yet another reason to be very careful when choosing to use `v1` UUIDs.
+
 ## TODO
 
 - [x] Identify champion to advance addition (stage-1)
