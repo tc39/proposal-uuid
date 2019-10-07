@@ -9,7 +9,8 @@ with the following high level properties:
   algorithm, 122 random bits.
 - [`v1` are time- and MAC-address based](https://tools.ietf.org/html/rfc4122#section-4.2), rather
   complex algorithm. If not used carefully, collisions are much more likely than with `v4`. `v1`
-  UUIDs are time-ordered.
+  UUIDs
+  [have time-ordering properties](https://github.com/kelektiv/node-uuid/issues/75#issuecomment-25893270).
 - [`v3` and `v5` are name-based](https://tools.ietf.org/html/rfc4122#section-4.3), special use
   case. Constant input leads to constant output.
 
@@ -19,12 +20,13 @@ assume that developers should always use the simplest UUID version that fulfills
 in order to reduces the risk of unexpected problems.
 
 - You should use `v4` if all you need is a universally unique identifier.
-- You should use `v1` if and only if you need time-ordering.
+- You should use `v1` if and only if you need time-encoding.
 - You should use `v3`/`v5` if and only if you need namespacing.
 
 In particular, accidentally using `v1` instead of `v4` UUIDs in cases where the developer is simply
-expecting a random value but is not aware of the fact that the generated IDs are time-ordered can
-have very negative consequences:
+expecting a random value but is not aware of the fact that the generated IDs are
+[time-ordered to a certain extent](https://github.com/kelektiv/node-uuid/issues/75#issuecomment-25893270)
+can have very negative consequences:
 
 - If these IDs are used as database keys and a database/cache does ID-based sharding (without
   further hashing the shard keys), it can lead to "hot shards".
