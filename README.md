@@ -159,7 +159,9 @@ If implementations follow
 would most likely not be the case in modern JavaScript implementations where hardware MAC addresses
 are either unavailable (browser, serverless functions) or not necessarily unique
 ([containers](https://stackoverflow.com/a/42947044)). However, there are
-[rumors that the presence of the MAC address lead to the arrest of the authors of the Melissa Virus](https://news.ycombinator.com/item?id=8575606).
+[rumors that the presence of the MAC address lead to the arrest of the authors of the Melissa Virus](https://news.ycombinator.com/item?id=8575606)
+and according to the manual even
+[MySQL 8.0 still uses the hardware MAC address on some operating systems](https://dev.mysql.com/doc/refman/8.0/en/miscellaneous-functions.html#function_uuid).
 
 In any case the exact creation time of any `v1` UUID will be contained within the UUID. This alone
 can be a privacy or data protection concern for many use cases (e.g. leaking the creation timestamp
