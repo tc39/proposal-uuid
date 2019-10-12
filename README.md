@@ -55,9 +55,9 @@ uuid(); // "52e6953d-edbe-4953-be2e-65ed3836b2f0"
 
 ## `Math.getRandomValues()`
 
-`Math.getRandomValues()` exposes an identical API to the [W3C
-`crypto.getRandomValues()`][web-crypto#crypto-method-getrandomvalues] recommendation. With the same
-guarantees regarding the quality of randomness:
+`Math.getRandomValues()` exposes an identical API to the
+[W3C `crypto.getRandomValues()`](https://www.w3.org/TR/WebCryptoAPI/#Crypto-method-getRandomValues)
+recommendation. With the same guarantees, regarding the quality of randomness:
 
 > Implementations should generate cryptographically random values using well-established
 > cryptographic pseudo-random number generators seeded with high-quality entropy, such as from an
@@ -65,7 +65,7 @@ guarantees regarding the quality of randomness:
 > lower-bound on the information theoretic entropy present in cryptographically random values, but
 > implementations should make a best effort to provide as much entropy as practicable.
 >
-> - [WebCryptoAPI 10.1. Description][web-crypto#crypto-description]
+> - [WebCryptoAPI 10.1. Description](https://www.w3.org/TR/WebCryptoAPI/#Crypto-description)
 
 `Math.getRandomValues()` will act as the foundation for implementing `UUID` algorithms, providing a
 single mockable (see [#25](https://github.com/tc39/proposal-uuid/issues/25)) source of randomness.
@@ -207,4 +207,3 @@ of a user account) so it's yet another reason to be very careful when choosing t
 [standard-library-proposal]: https://github.com/tc39/proposal-javascript-standard-library
 [tifu]: https://medium.com/@betable/tifu-by-using-math-random-f1c308c4fd9d
 [csprng]: https://en.wikipedia.org/wiki/Cryptographically_secure_pseudorandom_number_generator
-[web-crypto]: https://www.w3.org/TR/WebCryptoAPI/
