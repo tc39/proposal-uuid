@@ -53,7 +53,7 @@ representation _(as described in RFC-4122)_.
 uuid(); // "52e6953d-edbe-4953-be2e-65ed3836b2f0"
 ```
 
-## `Math.getRandomValues()`
+### `Math.getRandomValues()`
 
 `Math.getRandomValues()` exposes an identical API to the
 [W3C `crypto.getRandomValues()`](https://www.w3.org/TR/WebCryptoAPI/#Crypto-method-getRandomValues)
@@ -67,7 +67,7 @@ recommendation. With the same guarantees, regarding the quality of randomness:
 >
 > - [WebCryptoAPI 10.1. Description](https://www.w3.org/TR/WebCryptoAPI/#Crypto-description)
 
-`Math.getRandomValues()` will act as the foundation for implementing `UUID` algorithms, providing a
+`Math.getRandomValues()` will act as the foundation for implementing UUID algorithms, providing a
 single mockable (see [#25](https://github.com/tc39/proposal-uuid/issues/25)) source of randomness.
 
 ## Out of scope
