@@ -42,15 +42,15 @@ developers from security pitfalls.
 
 The UUID standard library provides an API for generating RFC 4122 identifiers.
 
-The default export of the UUID library is the
-[version 4 Algorithm](https://tools.ietf.org/html/rfc4122#section-4.4), and returns the string
-representation _(as described in RFC-4122)_.
+The only export of the UUID library that is initially supported is a method which implements the
+[version 4 "Algorithm for Creating a UUID from Truly Random or Pseudo-Random Numbers"](https://tools.ietf.org/html/rfc4122#section-4.4),
+and returns the string representation _(as described in RFC-4122)_.
 
 ```js
 // We're not yet certain as to how the API will be accessed (whether it's in the global, or a
 // future built-in module), and this will be part of the investigative process as we continue
 // working on the proposal.
-uuid(); // "52e6953d-edbe-4953-be2e-65ed3836b2f0"
+randomUUID(); // "52e6953d-edbe-4953-be2e-65ed3836b2f0"
 ```
 
 ### `Math.getRandomValues()`
