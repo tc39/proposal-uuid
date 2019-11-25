@@ -43,7 +43,7 @@ developers from security pitfalls.
 The UUID standard library provides an API for generating RFC 4122 identifiers.
 
 The default export of the UUID library is the
-[Version 4 Algorithm](https://tools.ietf.org/html/rfc4122#section-4.4), and returns the string
+[version 4 Algorithm](https://tools.ietf.org/html/rfc4122#section-4.4), and returns the string
 representation _(as described in RFC-4122)_.
 
 ```js
@@ -72,10 +72,10 @@ single mockable (see [#25](https://github.com/tc39/proposal-uuid/issues/25)) sou
 
 ## Out of scope
 
-Algorithms described in RFC 4122 other than Version 4 are not initially supported.
+Algorithms described in RFC 4122 other than version 4 are not initially supported.
 
 Statistics we've collected ([see analysis/README.md](./analysis/README.md)) indicate that the
-Version 4 algorithm is most widely used:
+version 4 algorithm is most widely used:
 
 | Algorithm Version | Repo Count | %     | Weighted by Watch Count | %     |
 | ----------------- | ---------- | ----- | ----------------------- | ----- |
@@ -87,7 +87,7 @@ Version 4 algorithm is most widely used:
 ### Regarding other UUID versions
 
 While there is utility in other UUID versions, we are advocating starting with a minimal API
-surface that supports a large percentage of users _(the string representation of Version 4 UUIDs)._
+surface that supports a large percentage of users _(the string representation of version 4 UUIDs)._
 
 If research and/or user feedback later indicates that additional functionality, such as versions 1,
 3, and 5 UUIDs, would add value, this proposal does not preclude these additions.
