@@ -127,18 +127,6 @@ implementations have led to
 It is for this reason that this spec mandates that any random numbers used come from a
 "cryptographically secure" source, thereby (hopefully) avoiding such issues.
 
-### Why does the standard library API treat `v4` UUIDs as a default?
-
-An analysis of popular Open Source projects that were using `v1` UUIDs has shown that the majority
-of identified projects did not have a compelling reason for using `v1` UUIDs, and with education
-were willing to migrate to `v4` UUIDs.
-
-We have reached out to the developers of the 6 most popular (based on watch count) actively
-maintained GitHub projects where this was the case and all of them accepted our pull requests.
-
-Please refer to [analysis/README.md](./analysis/README.md#accidental-v1-usage) for more
-information.
-
 ### But aren't v1 UUIDs better because they are guaranteed to be unique?
 
 As an oversimplification, `v1` UUIDs consist of two parts: A high-precision `timestamp` and a
