@@ -145,7 +145,7 @@ While any name involving `v4` requires a rather deep understanding of the intric
 term "version" in the context of the UUID spec, the term `randomUUID()` appears to be much more
 descriptive for `v4` UUIDs.
 
-### But aren't v1 UUIDs better because they are guaranteed to be unique?
+### Aren't v1 UUIDs better because they are guaranteed to be unique?
 
 As an oversimplification, `v1` UUIDs consist of two parts: A high-precision `timestamp` and a
 `node` id. [IETF RFC 4122][rfc-4122] contains several requirements that are supposed to ensure that
@@ -172,7 +172,7 @@ for a duplicate `v1` UUID to appear when generating UUIDs at a rate of 1M/second
 unlikely, [just like with `v4` UUIDs](#how-unique-are-v4-uuids) there is no practical guarantee
 that `v1` UUIDs are unique.
 
-### Are there privacy concerns related to v1 UUIDS?
+### Are there privacy concerns related to v1 UUIDs?
 
 If implementations follow
 [the primary recommendations of RFC 4122](https://tools.ietf.org/html/rfc4122#section-4.1.6) then
