@@ -191,7 +191,7 @@ of a user account) so it's yet another reason to be very careful when choosing t
 
 ### How do other languages/libraries deal with UUIDs?
 
-Other languages/libraries seem to do be using the term `random` to describe `v4` UUIDs as well
+Some other languages/libraries seem to do be using the term `random` to describe `v4` UUIDs as well
 ([go](https://godoc.org/github.com/google/uuid#NewRandom),
 [Java](<https://docs.oracle.com/javase/10/docs/api/java/util/UUID.html#randomUUID()>),
 [C++ Boost](https://www.boost.org/doc/libs/1_71_0/boost/uuid/random_generator.hpp)).
