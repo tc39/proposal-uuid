@@ -206,7 +206,7 @@ Apart from that, UUID adoption across other languages/libraries seems to be rath
   UUIDs but not `v1` or `v5`. It would be interesting to investigate further as to why these
   algorithms were chosen, given that on the one hand time-based UUIDs (`v1`) appear to have much
   broader use than name-based (`v3`/`v5`) UUIDs and that on the other hand for name-based UUIDs the
-  [RFC already recommends `v5` over `v3`](https://tools.ietf.org/html/rfc4122#section-4.3)).
+  [RFC already recommends `v5` over `v3`](https://tools.ietf.org/html/rfc4122#section-4.3).
 - [C++ Boost](https://www.boost.org/doc/libs/1_71_0/libs/uuid/doc/uuid.html#boost/uuid/name_generator.hpp)
   defaults to `v5` over `v3` for name-based UUIDs but in its implementation anticipates that `v5`
   (which uses SHA-1) for hashing will be followed up by a newer name-based UUID version which will
