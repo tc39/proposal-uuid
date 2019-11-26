@@ -213,8 +213,8 @@ Apart from that, UUID adoption across other languages/libraries seems to be rath
   use a different hashing algorithm ("In anticipation of a new RFC for uuid arriving…").
 - [Google's implementation for go](https://godoc.org/github.com/google/uuid#NewUUID) has chosen
   `v1` to be the "default" export whose generator method is called `NewUUID()`, whereas the other
-  versions have less defaulty-sounding names: `NewRandom()` for `v4`, `NewMD5()` for `v3`,
-  `NewSHA1()` for `v5`.
+  exposed methods have names closer to the abstraction we propose: `NewRandom()` for `v4`,
+  `NewMD5()` for `v3`, `NewSHA1()` for `v5`.
 - [Python](https://docs.python.org/3/library/uuid.html) provides methods for generating UUIDs named
   after the version for all 4 versions (`uuid.uuid1()`, `uuid.uuid3()`, `uuid.uuid4()` and
   `uuid.uuid5()`) plus a `UUID` class to represent UUIDs and transform them into various
