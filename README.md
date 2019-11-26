@@ -189,6 +189,31 @@ In any case the exact creation time of any `v1` UUID will be contained within th
 can be a privacy or data protection concern for many use cases (e.g. leaking the creation timestamp
 of a user account) so it's yet another reason to be very careful when choosing to use `v1` UUIDs.
 
+### How do other languages/libraries deal with UUIDs?
+
+Other languages/libraries seem to do be using the term `random` to describe `v4` UUIDs as well
+([go](https://godoc.org/github.com/google/uuid#NewRandom),
+[Java](<https://docs.oracle.com/javase/10/docs/api/java/util/UUID.html#randomUUID()>),
+[C++ Boost](https://www.boost.org/doc/libs/1_71_0/boost/uuid/random_generator.hpp)).
+
+Apart from that, UUID adoption in other languages/libraries seems to be rather inconsistent:
+
+- [Java](<https://docs.oracle.com/javase/10/docs/api/java/util/UUID.html#randomUUID()>) provides
+  methods for generating `v3` and `v4` UUIDs but not `v1` or `v5` (pretty weird why there's `v3`
+  instead of `v5` as the
+  [RFC already recommends `v5` over `v3`](https://tools.ietf.org/html/rfc4122#section-4.3)).
+- [C++ Boost](https://www.boost.org/doc/libs/1_71_0/libs/uuid/doc/uuid.html#boost/uuid/name_generator.hpp)
+  defaults to `v5` over `v3` for name-based UUIDs but in its implementation anticipates that `v5`
+  (which uses SHA-1) for hashing will be followed up by a newer name-based UUID version which will
+  use a different hashing algorithm ("In anticipation of a new RFC for uuid arriving…").
+- [Google's implementation for go](https://godoc.org/github.com/google/uuid#NewUUID) has chosen
+  `v1` to be the "default" export whose generator method is called `NewUUID()`, whereas the other
+  versions have less defaulty-sounding names: `NewRandom()` for `v4`, `NewMD5()` for `v3`,
+  `NewSHA1()` for `v5`.
+- [Python](https://docs.python.org/3/library/uuid.html) provides exports named after the version
+  for all 4 versions (`uuid.uuid1()`, `uuid.uuid3()`, `uuid.uuid4()` and `uuid.uuid5()`) plus a
+  `UUID` class to represent UUIDs and transform them into various representations.
+
 ## TODO
 
 - [x] Identify champion to advance addition (stage-1)
