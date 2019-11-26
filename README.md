@@ -209,7 +209,7 @@ Apart from that, UUID adoption across other languages/libraries seems to be rath
   [RFC already recommends `v5` over `v3`](https://tools.ietf.org/html/rfc4122#section-4.3).
 - [C++ Boost](https://www.boost.org/doc/libs/1_71_0/libs/uuid/doc/uuid.html#boost/uuid/name_generator.hpp)
   defaults to `v5` over `v3` for name-based UUIDs but in its implementation anticipates that `v5`
-  (which uses SHA-1) for hashing will be followed up by a newer name-based UUID version which will
+  (which uses SHA-1 for hashing) will be followed up by a newer name-based UUID version which will
   use a different hashing algorithm ("In anticipation of a new RFC for uuid arriving…").
 - [Google's implementation for go](https://godoc.org/github.com/google/uuid#NewUUID) has chosen
   `v1` to be the "default" export whose generator method is called `NewUUID()`, whereas the other
