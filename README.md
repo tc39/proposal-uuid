@@ -215,9 +215,14 @@ Apart from that, UUID adoption across other languages/libraries seems to be rath
   `v1` to be the "default" export whose generator method is called `NewUUID()`, whereas the other
   versions have less defaulty-sounding names: `NewRandom()` for `v4`, `NewMD5()` for `v3`,
   `NewSHA1()` for `v5`.
-- [Python](https://docs.python.org/3/library/uuid.html) provides exports named after the version
-  for all 4 versions (`uuid.uuid1()`, `uuid.uuid3()`, `uuid.uuid4()` and `uuid.uuid5()`) plus a
-  `UUID` class to represent UUIDs and transform them into various representations.
+- [Python](https://docs.python.org/3/library/uuid.html) provides methods for generating UUIDs named
+  after the version for all 4 versions (`uuid.uuid1()`, `uuid.uuid3()`, `uuid.uuid4()` and
+  `uuid.uuid5()`) plus a `UUID` class to represent UUIDs and transform them into various
+  representations.
+- [Rust](https://docs.rs/uuid/latest/uuid/) provides methods for generating UUIDs named after the
+  version for all 4 versions (`Uuid::new_v1()`, `Uuid::new_v3()`, `Uuid::new_v4()` and
+  `Uuid::new_v5()`) as static members of a `Uuid` class which is used to represent UUIDs and
+  transform them into various representations.
 
 ## TODO
 
