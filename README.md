@@ -196,11 +196,16 @@ Other languages/libraries seem to do be using the term `random` to describe `v4`
 [Java](<https://docs.oracle.com/javase/10/docs/api/java/util/UUID.html#randomUUID()>),
 [C++ Boost](https://www.boost.org/doc/libs/1_71_0/boost/uuid/random_generator.hpp)).
 
-Apart from that, UUID adoption in other languages/libraries seems to be rather inconsistent:
+Apart from that, UUID adoption across other languages/libraries seems to be rather inconsistent:
 
-- [Java](<https://docs.oracle.com/javase/10/docs/api/java/util/UUID.html#randomUUID()>) provides
-  methods for generating `v3` and `v4` UUIDs but not `v1` or `v5` (pretty weird why there's `v3`
-  instead of `v5` as the
+- [Java](https://docs.oracle.com/javase/10/docs/api/java/util/UUID.html) provides methods for
+  generating
+  `v3`([`UUID.nameUUIDFromBytes()`](<https://docs.oracle.com/javase/10/docs/api/java/util/UUID.html#nameUUIDFromBytes(byte%5B%5D)>))
+  and `v4`
+  ([`UUID.randomUUID()`](<https://docs.oracle.com/javase/10/docs/api/java/util/UUID.html#randomUUID()>))
+  UUIDs but not `v1` or `v5`. It would be interesting to investigate further as to why these
+  algorithms were chosen, given that on the one hand time-based UUIDs (`v1`) appear to have much
+  broader use than name-based (`v3`/`v5`) UUIDs and that on the other hand for name-based UUIDs the
   [RFC already recommends `v5` over `v3`](https://tools.ietf.org/html/rfc4122#section-4.3)).
 - [C++ Boost](https://www.boost.org/doc/libs/1_71_0/libs/uuid/doc/uuid.html#boost/uuid/name_generator.hpp)
   defaults to `v5` over `v3` for name-based UUIDs but in its implementation anticipates that `v5`
