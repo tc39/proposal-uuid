@@ -127,6 +127,24 @@ implementations have led to
 It is for this reason that this spec mandates that any random numbers used come from a
 "cryptographically secure" source, thereby (hopefully) avoiding such issues.
 
+### Why call the export `randomUUID()` and not something like `uuidV4()`?
+
+As pointed out
+[in the disucssion](https://github.com/tc39/proposal-uuid/issues/3#issuecomment-544173041) `v4`
+UUIDs have the maximum amount of entropy possible for a valid UUID as defined in [IETF RFC
+4122][rfc-4122].
+
+UUIDs defined in [IETF RFC 4122][rfc-4122] are 128 bit numbers that follow a specific byte layout.
+All of them contain a "version" field comprising 4 bits and a "variant" field comprising 2 bits,
+meaning that 6 out of 128 bits are reserved for meta information.
+
+Since `v4` UUIDs are defined to have all remaining 122 bits set to random values, there cannot be
+another UUID version that would contain more randomness.
+
+While any name involving `v4` requires a rather deep understanding of the intricate meaning of the
+term "version" in the context of the UUID spec, the term `randomUUID()` appears to be much more
+descriptive for `v4` UUIDs.
+
 ### But aren't v1 UUIDs better because they are guaranteed to be unique?
 
 As an oversimplification, `v1` UUIDs consist of two parts: A high-precision `timestamp` and a
