@@ -42,7 +42,7 @@ developers from security pitfalls.
 
 The UUID standard library provides an API for generating RFC 4122 identifiers.
 
-The only export of the UUID library that is initially supported is a method which implements the
+The only export of the UUID library that is initially supported is `randomUUID()`,  a method which implements the
 [version 4 "Algorithm for Creating a UUID from Truly Random or Pseudo-Random Numbers"](https://tools.ietf.org/html/rfc4122#section-4.4),
 and returns the string representation _(as described in RFC-4122)_.
 
