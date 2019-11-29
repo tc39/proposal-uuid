@@ -42,15 +42,16 @@ developers from security pitfalls.
 
 The UUID standard library provides an API for generating RFC 4122 identifiers.
 
-The default export of the UUID library is the
-[Version 4 Algorithm](https://tools.ietf.org/html/rfc4122#section-4.4), and returns the string
-representation _(as described in RFC-4122)_.
+The only export of the UUID library that is initially supported is `randomUUID()`, a method which
+implements the
+[version 4 "Algorithm for Creating a UUID from Truly Random or Pseudo-Random Numbers"](https://tools.ietf.org/html/rfc4122#section-4.4),
+and returns the string representation _(as described in RFC-4122)_.
 
 ```js
 // We're not yet certain as to how the API will be accessed (whether it's in the global, or a
 // future built-in module), and this will be part of the investigative process as we continue
 // working on the proposal.
-uuid(); // "52e6953d-edbe-4953-be2e-65ed3836b2f0"
+randomUUID(); // "52e6953d-edbe-4953-be2e-65ed3836b2f0"
 ```
 
 ### `Math.getRandomValues()`
@@ -72,10 +73,10 @@ single mockable (see [#25](https://github.com/tc39/proposal-uuid/issues/25)) sou
 
 ## Out of scope
 
-Algorithms described in RFC 4122 other than Version 4 are not initially supported.
+Algorithms described in RFC 4122 other than version 4 are not initially supported.
 
 Statistics we've collected ([see analysis/README.md](./analysis/README.md)) indicate that the
-Version 4 algorithm is most widely used:
+version 4 algorithm is most widely used:
 
 | Algorithm Version | Repo Count | %     | Weighted by Watch Count | %     |
 | ----------------- | ---------- | ----- | ----------------------- | ----- |
@@ -87,7 +88,7 @@ Version 4 algorithm is most widely used:
 ### Regarding other UUID versions
 
 While there is utility in other UUID versions, we are advocating starting with a minimal API
-surface that supports a large percentage of users _(the string representation of Version 4 UUIDs)._
+surface that supports a large percentage of users _(the string representation of version 4 UUIDs)._
 
 If research and/or user feedback later indicates that additional functionality, such as versions 1,
 3, and 5 UUIDs, would add value, this proposal does not preclude these additions.
@@ -127,19 +128,25 @@ implementations have led to
 It is for this reason that this spec mandates that any random numbers used come from a
 "cryptographically secure" source, thereby (hopefully) avoiding such issues.
 
-### Why does the standard library API treat `v4` UUIDs as a default?
+### Why call the export `randomUUID()` and not something like `uuidV4()`?
 
-An analysis of popular Open Source projects that were using `v1` UUIDs has shown that the majority
-of identified projects did not have a compelling reason for using `v1` UUIDs, and with education
-were willing to migrate to `v4` UUIDs.
+As pointed out
+[in the disucssion](https://github.com/tc39/proposal-uuid/issues/3#issuecomment-544173041) `v4`
+UUIDs have the maximum amount of entropy possible for a valid UUID as defined in [IETF RFC
+4122][rfc-4122].
 
-We have reached out to the developers of the 6 most popular (based on watch count) actively
-maintained GitHub projects where this was the case and all of them accepted our pull requests.
+UUIDs defined in [IETF RFC 4122][rfc-4122] are 128 bit numbers that follow a specific byte layout.
+All of them contain a "version" field comprising 4 bits and a "variant" field comprising 2 bits,
+meaning that 6 out of 128 bits are reserved for meta information.
 
-Please refer to [analysis/README.md](./analysis/README.md#accidental-v1-usage) for more
-information.
+Since `v4` UUIDs are defined to have all remaining 122 bits set to random values, there cannot be
+another UUID version that would contain more randomness.
 
-### But aren't v1 UUIDs better because they are guaranteed to be unique?
+While any name involving `v4` requires a rather deep understanding of the intricate meaning of the
+term "version" in the context of the UUID spec, the term `randomUUID()` appears to be much more
+descriptive for `v4` UUIDs.
+
+### Aren't v1 UUIDs better because they are guaranteed to be unique?
 
 As an oversimplification, `v1` UUIDs consist of two parts: A high-precision `timestamp` and a
 `node` id. [IETF RFC 4122][rfc-4122] contains several requirements that are supposed to ensure that
@@ -166,7 +173,7 @@ for a duplicate `v1` UUID to appear when generating UUIDs at a rate of 1M/second
 unlikely, [just like with `v4` UUIDs](#how-unique-are-v4-uuids) there is no practical guarantee
 that `v1` UUIDs are unique.
 
-### Are there privacy concerns related to v1 UUIDS?
+### Are there privacy concerns related to v1 UUIDs?
 
 If implementations follow
 [the primary recommendations of RFC 4122](https://tools.ietf.org/html/rfc4122#section-4.1.6) then
@@ -182,6 +189,41 @@ and according to the manual even
 In any case the exact creation time of any `v1` UUID will be contained within the UUID. This alone
 can be a privacy or data protection concern for many use cases (e.g. leaking the creation timestamp
 of a user account) so it's yet another reason to be very careful when choosing to use `v1` UUIDs.
+
+### How do other languages/libraries deal with UUIDs?
+
+Some other languages/libraries use the term "random" to describe version 4 UUIDs as well
+([go](https://godoc.org/github.com/google/uuid#NewRandom),
+[Java](<https://docs.oracle.com/javase/10/docs/api/java/util/UUID.html#randomUUID()>),
+[C++ Boost](https://www.boost.org/doc/libs/1_71_0/boost/uuid/random_generator.hpp)).
+
+Apart from that, UUID adoption across other languages/libraries seems to be rather inconsistent:
+
+- [Java](https://docs.oracle.com/javase/10/docs/api/java/util/UUID.html) provides methods for
+  generating
+  `v3`([`UUID.nameUUIDFromBytes()`](<https://docs.oracle.com/javase/10/docs/api/java/util/UUID.html#nameUUIDFromBytes(byte%5B%5D)>))
+  and `v4`
+  ([`UUID.randomUUID()`](<https://docs.oracle.com/javase/10/docs/api/java/util/UUID.html#randomUUID()>))
+  UUIDs but not `v1` or `v5`. It would be interesting to investigate further as to why these
+  algorithms were chosen, given that on the one hand time-based UUIDs (`v1`) appear to have much
+  broader use than name-based (`v3`/`v5`) UUIDs and that on the other hand for name-based UUIDs the
+  [RFC already recommends `v5` over `v3`](https://tools.ietf.org/html/rfc4122#section-4.3).
+- [C++ Boost](https://www.boost.org/doc/libs/1_71_0/libs/uuid/doc/uuid.html#boost/uuid/name_generator.hpp)
+  defaults to `v5` over `v3` for name-based UUIDs but in its implementation anticipates that `v5`
+  (which uses SHA-1 for hashing) will be followed up by a newer name-based UUID version which will
+  use a different hashing algorithm ("In anticipation of a new RFC for uuid arriving…").
+- [Google's implementation for go](https://godoc.org/github.com/google/uuid#NewUUID) has chosen
+  `v1` to be the "default" export whose generator method is called `NewUUID()`, whereas the other
+  exposed methods have names closer to the abstraction we propose: `NewRandom()` for `v4`,
+  `NewMD5()` for `v3`, `NewSHA1()` for `v5`.
+- [Python](https://docs.python.org/3/library/uuid.html) provides methods for generating UUIDs named
+  after the version for all 4 versions (`uuid.uuid1()`, `uuid.uuid3()`, `uuid.uuid4()` and
+  `uuid.uuid5()`) plus a `UUID` class to represent UUIDs and transform them into various
+  representations.
+- [Rust](https://docs.rs/uuid/latest/uuid/) provides methods for generating UUIDs named after the
+  version for all 4 versions (`Uuid::new_v1()`, `Uuid::new_v3()`, `Uuid::new_v4()` and
+  `Uuid::new_v5()`) as static members of a `Uuid` class which is used to represent UUIDs and
+  transform them into various representations.
 
 ## TODO
 
