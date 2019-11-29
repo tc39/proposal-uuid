@@ -1,19 +1,86 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-<pre class="metadata">
-title: 'Standard Module UUID'
-status: Strawman
-stage: 0
-location: https://github.com/bcoe/proposal-standard-module-uuid
-copyright: false
-contributors: Ben Coe, Daniel Ehrenberg, Robert Kieffer, Roman Shtylman, Christoph Tavan
+<link rel="icon" href="favicon.ico">
+<link href="ecmarkup.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<script src="ecmarkup.js"></script>
+<style>
+ins .hljs.hljs {
+  background-color: inherit;
+}
+</style>
+<script>
+  if (location.hostname.endsWith('.github.io') && location.protocol !== 'https:') {
+    location.protocol = 'https:';
+  }
+</script>
+<pre class=metadata>
+  title: UUID
+  status: proposal
+  stage: 2
+  location: https://github.com/tc39/proposal-uuid
+  copyright: false
+  contributors: Benjamin Coe, Robert Kieffer, Christoph Tavan
 </pre>
-<script src="ecmarkup.js" defer></script>
-<link rel="stylesheet" href="ecmarkup.css">
 
-<emu-intro id="introduction">
-  <h1>Introduction</h1>
-    <p>The standard module _@std:uuid_ exposes an API for generating character
-    encoded Universally Unique IDentifiers (UUID), based on the IETF
-    <a href="https://tools.ietf.org/html/rfc4122">rfc4122 proposal</a></p>
-</emu-intro>
+<emu-clause id="sec-function-properties-of-the-global-object">
+  <h1><span class="secnum">18.2</span>Function Properties of the Global Object</h1>
+  <emu-clause id="sec-eval-x">
+    <h1><span class="secnum">18.2.1</span>eval ( <var>x</var> )</h1>
+    <p>The <code>eval</code> function is the  <dfn>%eval%</dfn> intrinsic object. When the <code>eval</code> function is called with one argument <var>x</var>, the following steps are taken:</p>
+    <emu-alg><ol><li><emu-xref href="#assert" id="_ref_4794"><a href="#assert">Assert</a></emu-xref>: The <emu-xref href="#execution-context-stack" id="_ref_4795"><a href="#execution-context-stack">execution context stack</a></emu-xref> has at least two elements.</li><li>Let <var>callerContext</var> be the second to top element of the <emu-xref href="#execution-context-stack" id="_ref_4796"><a href="#execution-context-stack">execution context stack</a></emu-xref>.</li><li>Let <var>callerRealm</var> be <var>callerContext</var>'s <emu-xref href="#realm" id="_ref_4797"><a href="#realm">Realm</a></emu-xref>.</li><li>Let <var>calleeRealm</var> be <emu-xref href="#current-realm" id="_ref_4798"><a href="#current-realm">the current Realm Record</a></emu-xref>.</li><li>Perform ?&nbsp;<emu-xref aoid="HostEnsureCanCompileStrings" id="_ref_4799"><a href="#sec-hostensurecancompilestrings">HostEnsureCanCompileStrings</a></emu-xref>(<var>callerRealm</var>, <var>calleeRealm</var>).</li><li>Return ?&nbsp;<emu-xref aoid="PerformEval" id="_ref_4800"><a href="#sec-performeval">PerformEval</a></emu-xref>(<var>x</var>, <var>calleeRealm</var>, <emu-val>false</emu-val>, <emu-val>false</emu-val>).
+    </li></ol></emu-alg>
+  </emu-clause>
+
+  <ins class="block">
+    <emu-clause id="sec-eval-x">
+      <h1><span class="secnum">18.2.7</span>randomUUID()</h1>
+      <p>Produces a 128 bit RFC-4122 UUID string.</p>
+      <emu-alg>
+        <ol>
+          <li>return <emu-xref aoid="GetUUIDV4String" id="_ref_2881"><a href="#sec-getuuidv4string">GetUUIDV4String</a></emu-xref>()</li>
+        </ol>
+      </emu-alg>
+    </emu-clause>
+  </ins>
+</emu-clause>
+
+<emu-clause id="sec-math-object">
+    <h1><span class="secnum">20.2</span>The Math Object</h1>
+    <p>The Math object:</p>
+    <ul>
+      <li>is the intrinsic object  <dfn>%Math%</dfn>.</li>
+      <li>is the initial value of the <code>Math</code> property of the <emu-xref href="#sec-global-object" id="_ref_5231"><a href="#sec-global-object">global object</a></emu-xref>.</li>
+      <li>is an ordinary object.</li>
+      <li>has a [[Prototype]] internal slot whose value is the intrinsic object <emu-xref href="#sec-properties-of-the-object-prototype-object" id="_ref_5232"><a href="#sec-properties-of-the-object-prototype-object">%ObjectPrototype%</a></emu-xref>.</li>
+      <li>is not a <emu-xref href="#function-object" id="_ref_5233"><a href="#function-object">function object</a></emu-xref>.</li>
+      <li>does not have a [[Construct]] internal method; it cannot be used as a <a href="#constructor">constructor</a> with the <code>new</code> operator.</li>
+      <li>does not have a [[Call]] internal method; it cannot be invoked as a function.</li>
+    </ul>
+    <emu-note><span class="note">Note</span><div class="note-contents">
+      <p>In this specification, the phrase “the Number value for <var>x</var>” has a technical meaning defined in  <emu-xref href="#sec-ecmascript-language-types-number-type" id="_ref_502"><a href="#sec-ecmascript-language-types-number-type">6.1.6</a></emu-xref>.</p>
+    </div></emu-note>
+
+    <emu-clause id="sec-function-properties-of-the-math-object">
+      <h1><span class="secnum">20.2.2</span>Function Properties of the Math Object</h1>
+      <p>Each of the following <code>Math</code> object functions applies the <emu-xref aoid="ToNumber" id="_ref_5235"><a href="#sec-tonumber">ToNumber</a></emu-xref> abstract operation to each of its arguments (in left-to-right order if there is more than one). If <emu-xref aoid="ToNumber" id="_ref_5236"><a href="#sec-tonumber">ToNumber</a></emu-xref> returns an <emu-xref href="#sec-completion-record-specification-type" id="_ref_5237"><a href="#sec-completion-record-specification-type">abrupt completion</a></emu-xref>, that <emu-xref href="#sec-completion-record-specification-type" id="_ref_5238"><a href="#sec-completion-record-specification-type">Completion Record</a></emu-xref>
+ is immediately returned. Otherwise, the function performs a computation
+ on the resulting Number value(s). The value returned by each function
+is a Number.</p>
+      <ins class="block">
+        <emu-clause id="sec-math.get-random-values">
+          <h1><span class="secnum">20.2.2.36</span>Math.getRandomValues ( <var>typedArray</var> )</h1>
+          <p>Fills the array <var>typedArray</var> with cryptographically strong random values.</p>
+          <emu-alg>
+            <ol>
+              <li><emu-xref aoid="ValidateSharedIntegerTypedArray" id="_ref_7642"><a href="#sec-validatesharedintegertypedarray">ValidateSharedIntegerTypedArray</a></emu-xref>(<var>typedArray</var>).</li>
+              <li>Let <var>srcByteLength</var> be <var>typedArray</var>.[[ByteLength]].</li>
+              <li>If <var>srcByteLength</var> > 65536, then throw a <emu-val>RangeError</emu-val> exception.</li>
+              <li>Overwrite all elements of <var>typedArray</var> with cryptographically random values of the appropriate type.</li>
+              <li>return <var>typedArray</var></li>
+            </ol>
+          </emu-alg>
+        </emu-clause>
+      </ins>
+    </emu-clause>
+</emu-clause>
