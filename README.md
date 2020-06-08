@@ -199,6 +199,9 @@ Some other languages/libraries use the term "random" to describe version 4 UUIDs
 
 Apart from that, UUID adoption across other languages/libraries seems to be rather inconsistent:
 
+- [deno](https://github.com/denoland/deno/tree/master/std/uuid) added UUID to their standard
+  library, leaving out `v3`. The code for UUID creation is essentially copied from the
+  [`uuid` npm module](https://github.com/uuidjs/uuid), hence method naming follows the `vX` scheme.
 - [Java](https://docs.oracle.com/javase/10/docs/api/java/util/UUID.html) provides methods for
   generating
   `v3`([`UUID.nameUUIDFromBytes()`](<https://docs.oracle.com/javase/10/docs/api/java/util/UUID.html#nameUUIDFromBytes(byte%5B%5D)>))
