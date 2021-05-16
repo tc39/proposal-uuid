@@ -21,9 +21,11 @@ available for import in JavaScript engines.
 
 ### UUID generation is an extremely common software requirement
 
-The [`uuid` module](https://www.npmjs.com/package/uuid) on npm currently receives some
-[64,000,000 monthly downloads](https://npm-stat.com/charts.html?package=uuid) and is relied on by
-over 2,600,000 repositories (as of June 2019).
+The [`uuid` module](https://www.npmjs.com/package/uuid) on npm received over
+[180,000,000 downloads in January 2021](https://npm-stat.com/charts.html?package=uuid) and is
+relied on by
+[over 7,800,000 GitHub repositories](https://github.com/uuidjs/uuid/network/dependents) as of
+February 2021.
 
 The ubiquitous nature of the `uuid` module demonstrates that UUID generation is a common
 requirement for JavaScript software applications, making the functionality a good candidate for the
@@ -110,11 +112,12 @@ How do folks in the community use RFC 4122 UUIDs?
 
 ### What are the advantages to uuid being in the standard library?
 
-- The `uuid` module is relied on by `> 2,600,000` repos on GitHub (June 2019). Guaranteeing a
+- The `uuid` module is relied on by `> 7,800,000` repos on GitHub (February 2021). Guaranteeing a
   secure, consistent, well-maintained UUID implementation provides value to millions of developers.
-- The 12 kb `uuid` module is downloaded from npm `> 62,000,000` times a month (June 2019); making
-  it available in the standard library eventually saves TBs of bandwidth globally. If we continue
-  to address user needs, such as `uuid`, with the standard library, bandwidth savings add up.
+- The 12 kb `uuid` module is downloaded from npm `> 180,000,000` times a month (January 2021);
+  making it available in the standard library eventually saves TBs of bandwidth globally. If we
+  continue to address user needs, such as `uuid`, with the standard library, bandwidth savings add
+  up.
 
 ### How unique are v4 UUIDs?
 
